@@ -296,9 +296,6 @@ export const portfolioSingle = {
     {
       url: '/assets/img/portfolio-3.jpg',
     },
-    {
-      url: '/assets/img/portfolio-4.jpg',
-    },
   ],
 };
 
@@ -306,7 +303,9 @@ export const blogSingle = {
   title: 'Somewhere in America, Jonny is still Typing',
   publishDateTime: '2021-10-11T20:26:46.005Z',
   shortDescrip:
-    'The challenge was to portray the age of Julius Caesar in a way that was true to the history and yet an utterly joyous recalibration of it. Brutality had to be portrayed as knockabout; a world of mud and gore and fire repainted in primary colours. Uderzo, who was colour blind, much preferred the clear line to any hint of shade...',
+    'The challenge was to portray the age of Julius Caesar in a way that was true to the history and yet an utterly joyous recalibration of it. Brutality had to be portrayed as knockabout; a world of mud and gore and fire repainted in primary colours. Uderzo, who was colour blind, much preferred the clear line to any hint of shade.',
+  content:
+    'This is where the blog Article goes. The text below is just “filler content”.\n\nThe same evolution took place with Amazon Web Services, the company’s cloud computing subsidiary. It launched in 2006 as a "data storage service," but it has since become indispensable to modern tech companies — as necessary as paper clips once were but a damn sight more profitable.\n\nSo many companies rely on Amazon’s services that when the industry grows, AWS does, too. Last year, AWS alone made more money than McDonald’s. AWS is quite possibly the future of Amazon, which explains why it was everywhere at re:MARS.',
   thumb: {
     url: '/assets/img/blog.jpg',
   },

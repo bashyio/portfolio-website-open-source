@@ -185,7 +185,8 @@ const globalStyles = css`
     display: block;
   }
 
-  .big-text-1 {
+  .big-text-1,
+  .big-text-1 p {
     font-size: ${theme.sizes.text.size.mobile * 1.1}px;
     line-height: ${theme.sizes.text.lineheight.mobile * 1};
 
@@ -199,7 +200,8 @@ const globalStyles = css`
     }
   }
 
-  .big-text-2 {
+  .big-text-2,
+  .big-text-2 p {
     font-size: ${theme.sizes.text.size.mobile * 1.15}px;
     line-height: ${theme.sizes.text.lineheight.mobile * 1};
 
@@ -213,7 +215,8 @@ const globalStyles = css`
     }
   }
 
-  .big-text-3 {
+  .big-text-3,
+  .big-text-3 p {
     font-size: ${theme.sizes.text.size.mobile * 1.225}px;
     line-height: ${theme.sizes.text.lineheight.mobile * 1};
 
@@ -457,7 +460,7 @@ const globalStyles = css`
   }
 
   .color-primary {
-    color: ${theme.colors.primary};
+    color: ${theme.colors.primary} !important;
   }
 
   .hide-mobile {
@@ -476,6 +479,14 @@ const globalStyles = css`
     }
   }
 
+  .w-50 {
+    width: 50% !important;
+  }
+
+  .w-100 {
+    width: 100% !important;
+  }
+
   .w-mobile-50 {
     width: 50%;
     float: left;
@@ -483,6 +494,65 @@ const globalStyles = css`
     ${mq(Breakpoints.tb)} {
       width: 100%;
     }
+  }
+
+  .nowrap {
+    white-space: nowrap;
+  }
+
+  .swiper-descrip {
+    margin-top: 10px;
+    font-weight: 400;
+    font-size: 12px;
+    text-align: center;
+    color: ${theme.colors.lightGrey};
+  }
+
+  .swiper-button-disabled {
+    opacity: 0 !important;
+  }
+
+  .swiper-image {
+    max-height: 85vh;
+    padding-left: 30px;
+    padding-right: 30px;
+
+    ${mq(Breakpoints.ds)} {
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+  }
+
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    font-size: 20px;
+
+    ${mq(Breakpoints.ds)} {
+      font-size: 40px;
+    }
+  }
+
+  .swiper-button-prev {
+    left: 0;
+
+    ${mq(Breakpoints.ds)} {
+      left: 10px;
+    }
+  }
+
+  .swiper-button-next {
+    right: 0;
+
+    ${mq(Breakpoints.ds)} {
+      right: 10px;
+    }
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    transition: opacity 0.5s;
+    color: ${theme.colors.primary};
+    text-shadow: 2px 2px 4px #000000;
   }
 
   .cursor.link {
@@ -844,11 +914,11 @@ const globalStyles = css`
       width: 100%;
       background: ${theme.colors.dark};
 
-      ${mq(Breakpoints.bs)} {
+      ${mq(Breakpoints.ds)} {
         background: transparent;
         width: 108px;
       }
-      ${mq(Breakpoints.gs)} {
+      ${mq(Breakpoints.bs)} {
         width: ${theme.logo.width.big + 48}px;
       }
     }

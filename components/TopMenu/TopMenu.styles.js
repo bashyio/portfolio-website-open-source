@@ -98,18 +98,18 @@ export const menuStyles = (theme) => css`
 
   & h1 {
     overflow: hidden;
+    font-size: 30px;
+    line-height: 35px;
+
+    ${mq(Breakpoints.tb)} {
+      font-size: ${theme.sizes.h1.size.tablet} !important;
+      line-height: ${theme.sizes.h1.lineheight.tablet} !important;
+    }
   }
 
   & h1 a {
     color: ${theme.colors.light};
     display: inline-block;
-    font-size: 30px;
-    line-height: 35px;
-
-    ${mq(Breakpoints.tb)} {
-      font-size: inherit;
-      line-height: inherit;
-    }
   }
   & h1 a:hover,
   & h1 a:focus {

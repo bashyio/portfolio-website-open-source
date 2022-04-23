@@ -23,7 +23,7 @@ export const fixedNav = () => {
   const parallaxSection = document.querySelector('.parallax-section');
   const svgHome = document.querySelector('#lift-img-scroll');
 
-  if (parallaxPage) {
+  if (parallaxPage && parallaxSection) {
     if (
       parallaxSection.getBoundingClientRect().top <= 70 &&
       parallaxSection.getBoundingClientRect().bottom >= 0
@@ -55,6 +55,8 @@ export const fixedNav = () => {
 export const cursorLink = (e, cursor) => {
   if (
     e.target.tagName.toLowerCase() === 'a' ||
+    e.target.className === 'swiper-button-prev' ||
+    e.target.className === 'swiper-button-next' ||
     e.target.tagName.toLowerCase() === 'button' ||
     isParentLinkOrButton(e.target)
   ) {

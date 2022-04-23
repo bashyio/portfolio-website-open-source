@@ -1,28 +1,74 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable import/no-unresolved */
+/* eslint-disable react/no-array-index-key */
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
-import Link from 'next/link';
-import { HiArrowRight } from 'react-icons/hi';
+import { HiChevronRight, HiExternalLink } from 'react-icons/hi';
 import { CSSTransition } from 'react-transition-group';
 import Aos from 'aos';
+import ReactMarkdown from 'react-markdown';
+import { Keyboard, FreeMode, Navigation } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import 'swiper/css/free-mode';
+import 'swiper/css/scrollbar';
 
 import Root from '../../components/Root';
-import { H1, H2, H3, H4, H5, H6, BigHeading } from '../../components/Heading';
+import { H1, H2, H3 } from '../../components/Heading';
 import Button from '../../components/Buttons';
-import Subtitle from '../../components/Subtitle';
 import { Section, Container, Row, Col, Spacing } from '../../components/Layout';
 import Footer from '../../components/Footer';
 import LoadingScreen from '../../components/LoadingScreen';
 import PortfolioBannerSection from '../../components/PortfolioBannerSection';
 import ParallaxSection from '../../components/ParallaxSection';
+import Subtitle from '../../components/Subtitle';
 
-import { portfolioType, portfolioSingle } from '../../constants/defaultValues';
+import {
+  fileBaseUrl,
+  portfolioType,
+  portfolioSingle,
+} from '../../constants/defaultValues';
+import { preLoadImage } from '../../helpers';
 
 export default function Portfolio() {
-  const [pageLoading, setPageLoading] = useState(false);
+  const [imagesReady, setImagesReady] = useState(false);
+  const [pageLoading, setPageLoading] = useState(true);
+
+  const failedLoadImage = (func) => {
+    func();
+  };
+
+  const imageList = [portfolioSingle.thumb, ...portfolioSingle.gallery];
+
+  const allImages = [
+    portfolioSingle.thumb,
+    portfolioSingle.parallax,
+    ...portfolioSingle.gallery,
+  ];
+
+  const startLoadImage = () => {
+    Promise.all(allImages.map((p) => preLoadImage(fileBaseUrl + p.url)))
+      .then(() => setImagesReady(true))
+      .catch(() => failedLoadImage(startLoadImage));
+  };
+
+  useEffect(() => {
+    startLoadImage();
+  });
 
   useEffect(() => {
     Aos.refresh();
   }, []);
+
+  useEffect(() => {
+    if (imagesReady) {
+      setTimeout(() => {
+        setPageLoading(false);
+      }, 200);
+    }
+  }, [imagesReady]);
 
   return (
     <Root>
@@ -50,104 +96,117 @@ export default function Portfolio() {
       />
       <ParallaxSection image={portfolioSingle.parallax.url} />
       <Spacing size={2} />
-      <Section data-aos="fade-up">
+      <Section>
         <Container>
           <Row>
-            <Col fraction={3} size={2}>
-              <Subtitle>Subtitle Here</Subtitle>
-              <BigHeading>Portfolio Text 2</BigHeading>
+            <Col fraction={3} size={2} data-aos="fade-up">
+              <H2 className="color-primary">Overview</H2>
+              <div className="big-text-1">
+                <ReactMarkdown>{portfolioSingle.content}</ReactMarkdown>
+              </div>
             </Col>
             <Col fraction={3}>
-              <div className="align-r">
-                <Subtitle align="right" color="primary">
-                  Subtitle Here
-                </Subtitle>
-                <BigHeading>Portfolio Text 2</BigHeading>
+              <div data-aos="fade-up" data-aos-delay="150">
+                <H3 className="color-primary">Technologies</H3>
+                <ul>
+                  {portfolioSingle.tools.list.map((tool, index) => (
+                    <li key={`tech-${index}`}>{tool}</li>
+                  ))}
+                </ul>
               </div>
+              <div data-aos="fade-up" data-aos-delay="300">
+                <Spacing />
+                <H3 className="color-primary">Roles</H3>
+                <ul>
+                  {portfolioSingle.roles.list.map((tool, index) => (
+                    <li key={`tech-${index}`}>{tool}</li>
+                  ))}
+                </ul>
+              </div>
+            </Col>
+          </Row>
+          <Spacing />
+          <Row>
+            <Col fraction={1}>
+              <Button
+                href={portfolioSingle.previewUrl}
+                color="primaryOutline"
+                externalLink
+              >
+                <span>View Project</span>
+                <HiExternalLink />
+              </Button>
             </Col>
           </Row>
           <Spacing />
         </Container>
       </Section>
       <Section>
+        <Swiper
+          direction="horizontal"
+          slidesPerView={1}
+          freeMode
+          a11y
+          updateOnWindowResize
+          keyboard={{ enabled: true }}
+          pagination={{ clickable: true }}
+          navigation
+          modules={[Keyboard, FreeMode, Navigation]}
+          breakpoints={{
+            550: {
+              slidesPerView: 1.4,
+            },
+            720: {
+              slidesPerView: 1.6,
+            },
+            1024: {
+              slidesPerView: 1.7,
+            },
+          }}
+        >
+          {imageList.map((image, index) => (
+            <SwiperSlide key={`image-slide-${index}`}>
+              <img
+                src={image.url}
+                className="swiper-image"
+                alt={image.name || 'Slider Image'}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+        <div className="swiper-descrip">
+          Swipe to Slide, Use Arrow Keys or Click & Drag
+        </div>
+      </Section>
+      <Section data-aos="fade-up" className="pb-0">
         <Container>
           <Row>
+            <hr />
+          </Row>
+          <Spacing size={3} />
+          <Row>
             <Col fraction={1}>
-              <H1>Heading 1</H1>
-              <H1>
-                <a href="https://bashiruismail.io/">Heading Link</a>
-              </H1>
-              <H2>Heading 2</H2>
-              <H3>Heading 3</H3>
-              <H4>Heading 4</H4>
-              <H5>Heading 5</H5>
-              <H6>Heading 6</H6>
-              <hr />
-              <p>Paragraph</p>
-              <small>Small Text</small>
-              <p>
-                This is a{' '}
-                <Link href="/about">
-                  <a>regular Link Demo to About</a>
-                </Link>{' '}
-                fam. E dey work?
-              </p>
-              Here are links outside a paragraph: <br />
-              <a href="https://bashiruismail.io/">Link Demo</a>
-              <br />
-              <a href="https://bashiruismail.io/">
-                <span>Link Demo 2</span>
-              </a>
-              <br />
-              <a href="https://bashiruismail.io/">
-                <span>
-                  <span>Link Demo 3</span>
-                </span>
-              </a>
+              <Subtitle color="secondary">
+                {portfolioType[portfolioSingle.type]}
+              </Subtitle>
+              <H1>{portfolioSingle.title}</H1>
               <Button
-                color="primary"
-                className="mb-6"
-                fullWidth
-                onClick={() => {
-                  setPageLoading(true);
-                  setTimeout(() => {
-                    setPageLoading(false);
-                  }, 5000);
-                }}
+                href={portfolioSingle.previewUrl}
+                color="secondaryOutline"
+                externalLink
               >
-                Show Loading
+                <span>Next Project</span>
+                <HiChevronRight />
               </Button>
-              <p>
-                <Button href="#" color="lightOutline" className="rubber-band">
-                  lightOutline
-                </Button>
-              </p>
-              <Button type="submit" color="primary" showIconOnHover>
-                <span>Show Icon On Hover</span>
-                <HiArrowRight />
-              </Button>
-              <Button color="secondary">
-                <span>Test Icon AlignmenT</span>
-                <HiArrowRight />
-              </Button>
-              <Button color="light">Light</Button>
-              <Button href="#" color="primaryOutline">
-                primaryOutline
-              </Button>
-              <Button href="#" color="secondaryOutline">
-                secondaryOutline
-              </Button>
-              <p>
-                Extra Text <br />
-                Extra Text <br />
-                Extra Text <br />
-                Extra Text
-              </p>
             </Col>
+          </Row>
+          <Spacing size={3} />
+          <Row>
+            <hr />
           </Row>
         </Container>
       </Section>
-      <Footer hideHire />
+      <Footer />
       <CSSTransition
         in={pageLoading}
         timeout={300}

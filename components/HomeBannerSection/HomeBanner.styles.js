@@ -152,6 +152,7 @@ const homeBannerStyles = (theme) => css`
     top: 0;
     left: 0;
     & #lift-img-scroll {
+      will-change: transform;
       transition: transform 0.2s;
     }
   }

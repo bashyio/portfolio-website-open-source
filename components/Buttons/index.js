@@ -21,6 +21,8 @@ function Button({
           <a
             {...restProps}
             href={href}
+            target="_blank"
+            rel="noreferrer"
             css={buttonStyles(theme, color, fullWidth, showIconOnHover)}
           >
             {children}

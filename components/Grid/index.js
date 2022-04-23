@@ -12,7 +12,7 @@ import { filterStyles, gridStyles } from './Grid.styles';
 function Grid({ featured, filters, data, ...restProps }) {
   const [filter, setFilter] = useState('all');
   const [imagesReady, setImagesReady] = useState(false);
-  const [showLoading, setShowLoading] = useState(true);
+  const [gridLoading, setGridLoading] = useState(true);
 
   const failedLoadImage = (func) => {
     func();
@@ -39,12 +39,12 @@ function Grid({ featured, filters, data, ...restProps }) {
   useEffect(() => {
     if (imagesReady) {
       setTimeout(() => {
-        setShowLoading(false);
+        setGridLoading(false);
       }, 200);
     }
   }, [imagesReady]);
 
-  return showLoading ? (
+  return gridLoading ? (
     <LoadingScreen />
   ) : (
     <Section {...restProps}>

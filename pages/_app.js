@@ -14,21 +14,21 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const [showLoading, setShowLoading] = useState(false);
 
-  const startLoading = (url) => {
-    if (url !== router.asPath) {
-      document.querySelector('html').style.overflow = 'hidden';
-      setShowLoading(true);
-    }
-  };
-
-  const stopLoading = () => {
-    setTimeout(() => {
-      document.querySelector('html').style.overflow = 'auto';
-      setShowLoading(false);
-    }, 100);
-  };
-
   useEffect(() => {
+    const startLoading = (url) => {
+      if (url !== router.asPath) {
+        document.querySelector('html').style.overflow = 'hidden';
+        setShowLoading(true);
+      }
+    };
+
+    const stopLoading = () => {
+      setTimeout(() => {
+        document.querySelector('html').style.overflow = 'auto';
+        setShowLoading(false);
+      }, 100);
+    };
+
     router.events.on('routeChangeStart', startLoading);
     router.events.on('routeChangeComplete', stopLoading);
     router.events.on('routeChangeError', stopLoading);
@@ -39,11 +39,6 @@ function MyApp({ Component, pageProps }) {
       router.events.off('routeChangeError', stopLoading);
     };
   });
-
-  // useEffect(() => {
-  //   if (router.isReady) {
-  //   }
-  // }, [router.isReady]);
 
   const mouseLeave = () => {
     cursorRef.current.style.display = 'none';
