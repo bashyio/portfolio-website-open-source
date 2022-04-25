@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable import/no-unresolved */
-/* eslint-disable react/no-array-index-key */
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { HiChevronRight, HiExternalLink } from 'react-icons/hi';

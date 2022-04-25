@@ -22,7 +22,7 @@ import {
 import theme from '../../constants/theme';
 import footerStyles from './Footer.styles';
 
-function Footer({ hideHire, secondary }) {
+function Footer({ hideHire, hideSocial, secondary }) {
   return (
     <footer css={footerStyles(theme)}>
       <Section>
@@ -48,95 +48,99 @@ function Footer({ hideHire, secondary }) {
             </>
           )}
           <Row>
-            <Col fraction={2}>
-              <p className="fade-text mb-0">E-MAIL</p>
-              <p
-                className="big-text-3 mb-0"
-                data-aos="fade-up"
-                data-aos-duration="600"
-              >
-                <a
-                  className="white-link-secondary"
-                  href={`mailto:${socialLinks.mail}`}
-                >
-                  {socialLinks.mail}
-                </a>
-              </p>
-            </Col>
-            <Col fraction={2} className="col-right-desktop">
-              <p className="fade-text mb-2">CONNECT</p>
-              <ul
-                className="footer-social pb-4"
-                data-aos="fade-up"
-                data-aos-duration="600"
-              >
-                {socialLinks.github && (
-                  <li className="github">
+            {!hideSocial && (
+              <>
+                <Col fraction={2}>
+                  <p className="fade-text mb-0">E-MAIL</p>
+                  <p
+                    className="big-text-3 mb-0"
+                    data-aos="fade-up"
+                    data-aos-duration="600"
+                  >
                     <a
-                      href={socialLinks.github}
-                      target="_blank"
-                      rel="noreferrer"
+                      className="white-link-secondary"
+                      href={`mailto:${socialLinks.mail}`}
                     >
-                      <span className="social-icon">
-                        <IoLogoGithub />
-                      </span>
+                      {socialLinks.mail}
                     </a>
-                  </li>
-                )}
-                {socialLinks.twitter && (
-                  <li className="twitter">
-                    <a
-                      href={socialLinks.twitter}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <span className="social-icon">
-                        <IoLogoTwitter />
-                      </span>
-                    </a>
-                  </li>
-                )}
-                {socialLinks.linkedin && (
-                  <li className="linkedin">
-                    <a
-                      href={socialLinks.linkedin}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <span className="social-icon">
-                        <IoLogoLinkedin />
-                      </span>
-                    </a>
-                  </li>
-                )}
-                {socialLinks.instagram && (
-                  <li className="instagram">
-                    <a
-                      href={socialLinks.instagram}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <span className="social-icon">
-                        <IoLogoInstagram />
-                      </span>
-                    </a>
-                  </li>
-                )}
-                {socialLinks.facebook && (
-                  <li className="facebook">
-                    <a
-                      href={socialLinks.facebook}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <span className="social-icon">
-                        <IoLogoFacebook />
-                      </span>
-                    </a>
-                  </li>
-                )}
-              </ul>
-            </Col>
+                  </p>
+                </Col>
+                <Col fraction={2} className="col-right-desktop">
+                  <p className="fade-text mb-2">CONNECT</p>
+                  <ul
+                    className="footer-social pb-4"
+                    data-aos="fade-up"
+                    data-aos-duration="600"
+                  >
+                    {socialLinks.github && (
+                      <li className="github">
+                        <a
+                          href={socialLinks.github}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <span className="social-icon">
+                            <IoLogoGithub />
+                          </span>
+                        </a>
+                      </li>
+                    )}
+                    {socialLinks.twitter && (
+                      <li className="twitter">
+                        <a
+                          href={socialLinks.twitter}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <span className="social-icon">
+                            <IoLogoTwitter />
+                          </span>
+                        </a>
+                      </li>
+                    )}
+                    {socialLinks.linkedin && (
+                      <li className="linkedin">
+                        <a
+                          href={socialLinks.linkedin}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <span className="social-icon">
+                            <IoLogoLinkedin />
+                          </span>
+                        </a>
+                      </li>
+                    )}
+                    {socialLinks.instagram && (
+                      <li className="instagram">
+                        <a
+                          href={socialLinks.instagram}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <span className="social-icon">
+                            <IoLogoInstagram />
+                          </span>
+                        </a>
+                      </li>
+                    )}
+                    {socialLinks.facebook && (
+                      <li className="facebook">
+                        <a
+                          href={socialLinks.facebook}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <span className="social-icon">
+                            <IoLogoFacebook />
+                          </span>
+                        </a>
+                      </li>
+                    )}
+                  </ul>
+                </Col>
+              </>
+            )}
           </Row>
           <Spacing size={1} />
           <Row className="copyright-row">
@@ -171,11 +175,13 @@ function Footer({ hideHire, secondary }) {
 
 Footer.propTypes = {
   hideHire: PropTypes.bool,
+  hideSocial: PropTypes.bool,
   secondary: PropTypes.bool,
 };
 
 Footer.defaultProps = {
   hideHire: false,
+  hideSocial: false,
   secondary: false,
 };
 

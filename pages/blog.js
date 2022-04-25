@@ -1,4 +1,3 @@
-/* eslint-disable react/no-array-index-key */
 import { useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -21,6 +20,8 @@ import {
 } from '../constants/defaultValues';
 
 export default function Blog() {
+  const heading = `${devNick}’s Blog`;
+
   useEffect(() => {
     Aos.refresh();
   }, []);
@@ -47,8 +48,14 @@ export default function Blog() {
           <Row>
             <Col fraction={1}>
               <Subtitle data-aos="fade-up">My Thoughts</Subtitle>
-              <BigHeading data-aos-delay="200" data-aos="fade-up">
-                {devNick}&rsquo;s Blog
+              <BigHeading
+                className="playful"
+                data-aos-delay="200"
+                data-aos="fade-up"
+              >
+                {heading.split('').map((h, i) => (
+                  <span key={`h-${i}`}>{h}</span>
+                ))}
               </BigHeading>
               <p className="big-text-1" data-aos="fade-up" data-aos-delay="400">
                 {blogDescription}

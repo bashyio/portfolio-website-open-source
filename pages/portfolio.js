@@ -18,6 +18,8 @@ import {
 } from '../constants/defaultValues';
 
 export default function Portfolio() {
+  const heading = 'Portfolio';
+
   useEffect(() => {
     Aos.refresh();
   }, []);
@@ -44,8 +46,14 @@ export default function Portfolio() {
           <Row>
             <Col fraction={1}>
               <Subtitle data-aos="fade-up">What I Do</Subtitle>
-              <BigHeading data-aos-delay="200" data-aos="fade-up">
-                Portfolio
+              <BigHeading
+                className="playful"
+                data-aos-delay="200"
+                data-aos="fade-up"
+              >
+                {heading.split('').map((h, i) => (
+                  <span key={`h-${i}`}>{h}</span>
+                ))}
               </BigHeading>
               <p className="big-text-1" data-aos="fade-up" data-aos-delay="400">
                 {portfolioDescription}

@@ -22,9 +22,9 @@ export const callToAction =
 export const copyrightText = 'Made with ❤️ by BASHY';
 export const copyrightUrl = 'https://bashiruismail.io';
 export const aboutExcerpt =
-  'I design & create unique award-winning, tailor-made websites and user interfaces! I can also take care of promotion for your brand, in social media channels and search engines. I have worked in startups as well and well-established companies. Learn more about me and how I turn ideas into real life products.';
+  'I design & create unique award-winning, tailor-made websites and user interfaces! I can also take care of promotion for your brand, in social media channels and search engines. I have worked in startups as well as well-established companies. Learn more about me and how I turn ideas into real life products.';
 export const portfolioDescription =
-  'I design & create unique award-winning, tailor-made websites and user interfaces! I have worked in startups as well and well-established companies. You can learn more about how I turn ideas into real life products. Please find below Projects that I can share with you.';
+  'I design & create unique award-winning, tailor-made websites and user interfaces! I have worked in startups as well as well-established companies. You can learn more about how I turn ideas into real life products. Please find below Projects that I can share with you.';
 export const blogDescription =
   'Articles packed with actionable tips and insights on how good design positively impacts your business.';
 
@@ -317,6 +317,7 @@ export const blogList = [
       'The challenge was to portray the age of Julius Caesar in a way that was true to the history and yet an utterly joyous recalibration of it. Brutality had to be portrayed as knockabout; a world of mud and gore and fire repainted in primary colours. Uderzo, who was colour blind, much preferred the clear line to any hint of shade.',
   },
 ];
+
 export const blogSingle = {
   uri: 'demo-article',
   title: 'Somewhere in America, Jonny is still Typing',
@@ -330,4 +331,35 @@ export const blogSingle = {
   },
 };
 
-// thumbimageurl, viewOrder, featured - order by viewOrder (desc)
+export const skillList = [
+  'Figma',
+  'Procreate',
+  'Sketch',
+  'InVision Studio',
+  'Adobe XD',
+  'Adobe Illustrator',
+  'Craft',
+  'Axure',
+  'Proto.io',
+  'Zeplin',
+  'Corel Draw',
+  'Axure RP',
+  'Framer',
+  'HTML',
+  'CSS',
+  'BootStrap',
+  'Emotion',
+  'Material UI',
+  'SASS',
+  'WordPress',
+  'WooCommerce',
+  'UI Design',
+  'Prototyping',
+  'Whiteboarding',
+  'Design Systems',
+  'Studio',
+  'MockFlow',
+  'Gravit Designer',
+];
+
+export const aboutMe = `I design & create unique award-winning, tailor-made websites and user interfaces! I can also take care of promotion for your brand, in social media channels and search engines. I have worked in startups as well as well-established companies. And this is where meaningful content ends. The rest of this is just random content to serve as placeholder. Edit this for your own personal need.\n\nWhen the latest instalment in Microsoft’s decades-old Flight Simulator series was first shown at the E3 video game event last year, it drew gasps from the audience. Using two petabytes of geographic data culled from Bing Maps, together with cutting-edge, machine learning algorithms running on the company’s Azure cloud computing network, the game presents a near-photorealistic depiction of the entire planet.\n\nStudents from Boston University to UCLA, from South Louisiana Community College to Northwestern University, in Facebook meme groups, and on Reddit threads. The boom of college Minecraft servers has begun. These servers have the express purpose of bringing students together and building, oftentimes focused on recreating their college campuses. Searches for Minecraft server hosting have peaked to unprecedented levels in the last few weeks, and thousands of students are discussing college servers, most notably on the Facebook group "Zoom Memes for Self Quaranteens."`;

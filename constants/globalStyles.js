@@ -500,6 +500,111 @@ const globalStyles = css`
     white-space: nowrap;
   }
 
+  .portrait {
+    width: 100%;
+    border-radius: 5px;
+    display: block;
+    transition: transform 0.3s;
+
+    &:hover,
+    &:focus {
+      transform: scale(1.07) !important;
+    }
+  }
+
+  .about-text {
+    margin: 0;
+    max-width: 640px;
+  }
+
+  .contact-text {
+    ${mq(Breakpoints.tb)} {
+      max-width: 450px;
+    }
+  }
+
+  & .footer-social {
+    list-style-type: none;
+    margin: 10px 0 0 0;
+    padding: 0;
+
+    & li {
+      display: inline-block;
+      margin: 0 10px 0 0;
+
+      ${mq(Breakpoints.tb)} {
+        margin: 0 15px 0 0;
+      }
+
+      & .social-icon {
+        height: 30px;
+        width: 30px;
+        display: inline-block;
+        border-radius: 5px;
+        background: ${theme.colors.light};
+        color: ${theme.colors.dark};
+        transition: all 0.5s;
+        text-align: center;
+        padding: 5px;
+
+        & svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
+      & a:hover .social-icon,
+      & a:focus .social-icon {
+        background: ${theme.colors.secondary};
+        color: ${theme.colors.white};
+      }
+
+      &.facebook a:hover .social-icon,
+      &.facebook a:focus .social-icon {
+        background: ${theme.colors.facebook};
+        color: ${theme.colors.white};
+      }
+
+      &.github a:hover .social-icon,
+      &.github a:focus .social-icon {
+        background: ${theme.colors.github};
+        color: ${theme.colors.white};
+      }
+
+      &.twitter a:hover .social-icon,
+      &.twitter a:focus .social-icon {
+        background: ${theme.colors.twitter};
+        color: ${theme.colors.white};
+      }
+
+      &.linkedin a:hover .social-icon,
+      &.linkedin a:focus .social-icon {
+        background: ${theme.colors.linkedin};
+        color: ${theme.colors.white};
+      }
+
+      &.instagram a:hover .social-icon,
+      &.instagram a:focus .social-icon {
+        background: ${theme.colors.instagram};
+        color: ${theme.colors.white};
+      }
+    }
+
+    & li:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .playful {
+    & span {
+      transition: color 0.5s, opacity 0.5s;
+
+      &:hover,
+      &:focus {
+        color: ${theme.colors.secondary};
+      }
+    }
+  }
+
   .swiper-descrip {
     margin-top: 10px;
     font-weight: 400;

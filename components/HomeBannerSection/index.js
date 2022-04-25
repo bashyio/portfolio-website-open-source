@@ -1,4 +1,3 @@
-/* eslint-disable react/no-array-index-key */
 import { memo } from 'react';
 import PropTypes from 'prop-types';
 import { HiArrowRight } from 'react-icons/hi';
