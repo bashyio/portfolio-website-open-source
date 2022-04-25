@@ -175,7 +175,7 @@ export default function Portfolio() {
           ))}
         </Swiper>
         <div className="swiper-descrip">
-          Swipe to Slide, Use Arrow Keys or Click & Drag
+          [Swipe to Slide, Use Arrow Keys or Click & Drag]
         </div>
       </Section>
       <Section data-aos="fade-up" className="pb-0">

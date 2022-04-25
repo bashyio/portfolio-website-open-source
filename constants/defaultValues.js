@@ -25,6 +25,8 @@ export const aboutExcerpt =
   'I design & create unique award-winning, tailor-made websites and user interfaces! I can also take care of promotion for your brand, in social media channels and search engines. I have worked in startups as well and well-established companies. Learn more about me and how I turn ideas into real life products.';
 export const portfolioDescription =
   'I design & create unique award-winning, tailor-made websites and user interfaces! I have worked in startups as well and well-established companies. You can learn more about how I turn ideas into real life products. Please find below Projects that I can share with you.';
+export const blogDescription =
+  'Articles packed with actionable tips and insights on how good design positively impacts your business.';
 
 export const portfolioType = {
   design: 'UI/UX Design',
@@ -299,7 +301,24 @@ export const portfolioSingle = {
   ],
 };
 
+export const blogList = [
+  {
+    uri: 'demo-article',
+    title: 'Somewhere in America',
+    publishDateTime: '2021-10-11T20:26:46.005Z',
+    shortDescrip:
+      'The challenge was to portray the age of Julius Caesar in a way that was true to the history and yet an utterly joyous recalibration of it. Brutality had to be portrayed as knockabout; a world of mud and gore and fire repainted in primary colours. Uderzo, who was colour blind, much preferred the clear line to any hint of shade.',
+  },
+  {
+    uri: 'demo-article',
+    title: 'Jonny is still Typing',
+    publishDateTime: '2021-10-11T20:26:46.005Z',
+    shortDescrip:
+      'The challenge was to portray the age of Julius Caesar in a way that was true to the history and yet an utterly joyous recalibration of it. Brutality had to be portrayed as knockabout; a world of mud and gore and fire repainted in primary colours. Uderzo, who was colour blind, much preferred the clear line to any hint of shade.',
+  },
+];
 export const blogSingle = {
+  uri: 'demo-article',
   title: 'Somewhere in America, Jonny is still Typing',
   publishDateTime: '2021-10-11T20:26:46.005Z',
   shortDescrip:

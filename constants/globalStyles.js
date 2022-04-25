@@ -514,12 +514,12 @@ const globalStyles = css`
 
   .swiper-image {
     max-height: 85vh;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 11px;
+    padding-right: 11px;
 
-    ${mq(Breakpoints.ds)} {
-      padding-left: 50px;
-      padding-right: 50px;
+    ${mq(Breakpoints.bs)} {
+      padding-left: 25px;
+      padding-right: 25px;
     }
   }
 

@@ -48,35 +48,45 @@ function MyApp({ Component, pageProps }) {
     cursorRef.current.style.display = '';
   };
 
+  const mouseMove = (e) => {
+    cursorRef.current.style.top = `${e.clientY}px`;
+    cursorRef.current.style.left = `${e.clientX}px`;
+  };
+
+  const mouseDown = () => {
+    cursorRef.current.style.opacity = '.7';
+  };
+
+  const mouseUp = () => {
+    cursorRef.current.style.opacity = '';
+  };
+
+  const mouseOver = (e) => {
+    cursorLink(e, cursorRef.current);
+  };
+
   useEffect(() => {
     document.body.addEventListener('mouseleave', mouseLeave);
     document.body.addEventListener('mouseenter', mouseEnter);
+    document.body.addEventListener('mousemove', mouseMove);
+    document.body.addEventListener('mousedown', mouseDown);
+    document.body.addEventListener('mouseup', mouseUp);
+    document.body.addEventListener('mouseover', mouseOver);
 
     return () => {
       document.body.removeEventListener('mouseleave', mouseLeave);
       document.body.removeEventListener('mouseenter', mouseEnter);
+      document.body.removeEventListener('mousemove', mouseMove);
+      document.body.removeEventListener('mousedown', mouseDown);
+      document.body.removeEventListener('mouseup', mouseUp);
+      document.body.removeEventListener('mouseover', mouseOver);
     };
   });
 
   return (
     <>
       <Global styles={globalStyles} />
-      <div
-        id="app-container"
-        onMouseMove={(e) => {
-          cursorRef.current.style.top = `${e.clientY}px`;
-          cursorRef.current.style.left = `${e.clientX}px`;
-        }}
-        onMouseDown={() => {
-          cursorRef.current.style.opacity = '.7';
-        }}
-        onMouseUp={() => {
-          cursorRef.current.style.opacity = '';
-        }}
-        onMouseOver={(e) => {
-          cursorLink(e, cursorRef.current);
-        }}
-      >
+      <div id="app-container">
         <CSSTransition
           in={showLoading}
           timeout={1000}

@@ -89,9 +89,14 @@ export default function Contact() {
                 fam. E dey work?
               </p>
               Here are links outside a paragraph: <br />
-              <a href="https://bashiruismail.io/">Link Demo</a>
+              <a href="https://bashiruismail.io/" className="secondary-link">
+                Link Demo
+              </a>
               <br />
-              <a href="https://bashiruismail.io/">
+              <a
+                href="https://bashiruismail.io/"
+                className="alt-link-secondary"
+              >
                 <span>Link Demo 2</span>
               </a>
               <br />
