@@ -94,3 +94,5 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+.code-workspace
