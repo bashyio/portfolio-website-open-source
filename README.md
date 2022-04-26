@@ -11,7 +11,7 @@ I made a simple theming kit to make it easier for you to customize the Interface
 You can edit the theme variable in constants/theme.js
 Media Query breakpoints are defined in constants/mq.js
 
-Shout me out on Twitter @bashy_io if you have fun using this!
+Shout me out on Twitter [@bashy_io](https://twitter.com/bashy_io) if you have fun using this!
 
 To run the development server:
 
@@ -20,6 +20,7 @@ npm run dev
 # or
 yarn dev
 ```
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 To learn more about Next.js, take a look at the following resources:
