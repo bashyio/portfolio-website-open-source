@@ -70,8 +70,8 @@ typings/
 /out/
 
 #VSCODE
-.vscode
-.code-workspace
+*.vscode
+*.code-workspace
 
 # production
 /build
@@ -94,5 +94,3 @@ yarn-error.log*
 
 # vercel
 .vercel
-
-.code-workspace
