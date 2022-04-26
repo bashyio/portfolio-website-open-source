@@ -23,7 +23,7 @@ function Root({ children }) {
 
     Aos.init({
       offset: 80,
-      duration: 600,
+      duration: 1000,
     });
 
     setTimeout(() => {
