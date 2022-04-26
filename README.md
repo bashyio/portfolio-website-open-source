@@ -4,12 +4,11 @@ This is a static version of my Portfolio Website: [https://bashiruismail.io](htt
 The live website is an extended version of this project and it uses Strapi (a Headless CMS) for the back-end.
 You can fork the repo and extend the project as you wish to suit your back-end preferences.
 
-You'll find all relevant Demo Data in constants/defaultValues.js
-
-For styling, I used Emotion: [https://emotion.sh](https://emotion.sh)
+You'll find all relevant Demo Data in 'constants/defaultValues.js'.
+For styling, I used Emotion: [https://emotion.sh](https://emotion.sh).
 I made a simple theming kit to make it easier for you to customize the Interface.
-You can edit the theme variable in constants/theme.js
-Media Query breakpoints are defined in constants/mq.js
+You can edit the theme variable in 'constants/theme.js'.
+Media Query breakpoints are defined in 'constants/mq.js'.
 
 Shout me out on Twitter [@bashy_io](https://twitter.com/bashy_io) if you have fun using this!
 
