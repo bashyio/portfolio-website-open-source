@@ -1095,6 +1095,10 @@ const globalStyles = css`
         width: 72px;
       }
       ${mq(Breakpoints.bs)} {
+        background: transparent;
+        width: 100px;
+      }
+      ${mq(Breakpoints.gs)} {
         width: ${theme.logo.width.big + 48}px;
       }
     }
