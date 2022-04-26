@@ -6,7 +6,7 @@ You can fork the repo and extend the project as you wish to suit your back-end p
 
 You'll find all relevant Demo Data in constants/defaultValues.js
 
-For styling, I used Emotion: [https://emotion.sh](https://emotion.sh)
+For styling, I used Emotion: [https://emotion.sh](https://emotion.sh).
 I made a simple theming kit to make it easier for you to customize the Interface.
 You can edit the theme variable in constants/theme.js
 Media Query breakpoints are defined in constants/mq.js
