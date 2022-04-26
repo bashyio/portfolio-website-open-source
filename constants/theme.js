@@ -33,8 +33,8 @@ const theme = {
     instagram: '#C13584',
     white: '#fff',
     black: '#000',
-    success: 'green',
-    error: 'red',
+    success: '#03a678',
+    error: '#d91e18',
     warning: 'orange',
   },
   fonts: {

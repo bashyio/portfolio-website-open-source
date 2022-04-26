@@ -663,7 +663,7 @@ const globalStyles = css`
   }
 
   .red {
-    color: #d91e18;
+    color: ${theme.colors.error};
   }
 
   .form-group {
@@ -703,14 +703,14 @@ const globalStyles = css`
 
     &.error {
       .form-control {
-        border-color: #d91e18 !important;
+        border-color: ${theme.colors.error} !important;
       }
     }
 
     & .error-text {
       font-size: 14px;
       font-weight: 500;
-      color: #d91e18 !important;
+      color: ${theme.colors.error} !important;
     }
   }
 
@@ -725,10 +725,10 @@ const globalStyles = css`
     border-radius: 5px;
   }
   & .success-message {
-    background: #03a678;
+    background: ${theme.colors.success};
   }
   & .error-message {
-    background: #d91e18;
+    background: ${theme.colors.error};
   }
 
   .cursor.link {
