@@ -8,8 +8,8 @@ You'll find all relevant Demo Data in constants/defaultValues.js
 
 For styling, I used Emotion: [https://emotion.sh](https://emotion.sh).
 I made a simple theming kit to make it easier for you to customize the Interface.
-You can edit the theme variable in constants/theme.js
-Media Query breakpoints are defined in constants/mq.js
+You can edit the theme variable in constants/theme.js.
+Media Query breakpoints are defined in constants/mq.js.
 
 Shout me out on Twitter [@bashy_io](https://twitter.com/bashy_io) if you have fun using this!
 
