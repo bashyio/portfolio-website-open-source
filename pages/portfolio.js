@@ -7,7 +7,7 @@ import Grid from '../components/Grid';
 import Footer from '../components/Footer';
 import { BigHeading } from '../components/Heading';
 import Subtitle from '../components/Subtitle';
-import { Section, Container, Row, Col, Spacing } from '../components/Layout';
+import { Section, Container, Row, Col } from '../components/Layout';
 
 import {
   devName,
@@ -40,7 +40,6 @@ export default function Portfolio() {
         <meta property="og:image:width" content="400" />
         <meta property="og:image:height" content="400" />
       </Head>
-      <Spacing />
       <Section data-aos="fade-up" className="pb-0">
         <Container>
           <Row>

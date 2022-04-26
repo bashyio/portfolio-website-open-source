@@ -1,22 +1,87 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Head from 'next/head';
-import Link from 'next/link';
-import { HiArrowRight } from 'react-icons/hi';
-import { CSSTransition } from 'react-transition-group';
 import Aos from 'aos';
+import {
+  IoLogoGithub,
+  IoLogoTwitter,
+  IoLogoLinkedin,
+  IoLogoInstagram,
+  IoLogoFacebook,
+} from 'react-icons/io5';
+import { Formik, Form, Field } from 'formik';
 
 import Root from '../components/Root';
-import { H1, H2, H3, H4, H5, H6, BigHeading } from '../components/Heading';
-import Button from '../components/Buttons';
+import { BigHeading, H4 } from '../components/Heading';
 import Subtitle from '../components/Subtitle';
 import { Section, Container, Row, Col, Spacing } from '../components/Layout';
 import Footer from '../components/Footer';
-import LoadingScreen from '../components/LoadingScreen';
-
-import { devName, siteMetaDescription } from '../constants/defaultValues';
+import Button from '../components/Button';
+import {
+  socialLinks,
+  devName,
+  siteMetaDescription,
+  callToAction,
+} from '../constants/defaultValues';
 
 export default function Contact() {
-  const [pageLoading, setPageLoading] = useState(false);
+  const formRef = useRef(null);
+  const [loadingSubmit, setLoadingSubmit] = useState(false);
+  const [statusSubmit, setStatusSubmit] = useState(0);
+
+  const heading = `Contact`;
+
+  const initialValues = {
+    name: '',
+    email: '',
+    how: '',
+    message: '',
+  };
+  const validateForm = (values) => {
+    const errors = {};
+
+    if (!values.name) {
+      errors.name = 'Please enter Name';
+    }
+
+    if (!values.email) {
+      errors.email = 'Please enter E-mail';
+    } else if (
+      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
+    ) {
+      errors.email = 'Invalid E-mail Address';
+    }
+
+    if (!values.message) {
+      errors.message = 'Please enter Message';
+    }
+
+    return errors;
+  };
+
+  const onSubmit = async (values) => {
+    setLoadingSubmit(true);
+    setStatusSubmit(0);
+
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(values),
+    });
+
+    if (!response.ok) {
+      setLoadingSubmit(false);
+      return setStatusSubmit(-1);
+    }
+
+    setLoadingSubmit(false);
+    setStatusSubmit(1);
+    formRef.current.handleReset();
+
+    return null;
+  };
 
   useEffect(() => {
     Aos.refresh();
@@ -38,120 +103,246 @@ export default function Contact() {
         <meta property="og:image:width" content="400" />
         <meta property="og:image:height" content="400" />
       </Head>
-      <Section data-aos="fade-up">
-        <Container>
-          <Row>
-            <Col fraction={3}>
-              <Subtitle>Subtitle Here</Subtitle>
-              <BigHeading>Contact Text 2</BigHeading>
-            </Col>
-            <Col fraction={3}>
-              <div className="align-c">
-                <Subtitle align="center" color="secondary">
-                  Subtitle Here
-                </Subtitle>
-                <BigHeading>Contact Text 2</BigHeading>
-              </div>
-            </Col>
-            <Col fraction={3}>
-              <div className="align-r">
-                <Subtitle align="right" color="primary">
-                  Subtitle Here
-                </Subtitle>
-                <BigHeading>Contact Text 3</BigHeading>
-              </div>
-            </Col>
-          </Row>
-          <Spacing />
-        </Container>
-      </Section>
-      <Section>
+      <Section className="pb-0">
         <Container>
           <Row>
             <Col fraction={1}>
-              <H1>Heading 1</H1>
-              <H1>
-                <a href="https://bashiruismail.io/">Heading Link</a>
-              </H1>
-              <H2>Heading 2</H2>
-              <H3>Heading 3</H3>
-              <H4>Heading 4</H4>
-              <H5>Heading 5</H5>
-              <H6>Heading 6</H6>
-              <hr />
-              <p>Paragraph</p>
-              <small>Small Text</small>
-              <p>
-                This is a{' '}
-                <Link href="/about">
-                  <a>regular Link Demo to About</a>
-                </Link>{' '}
-                fam. E dey work?
-              </p>
-              Here are links outside a paragraph: <br />
-              <a href="https://bashiruismail.io/">Link Demo</a>
-              <br />
-              <a href="https://bashiruismail.io/">
-                <span>Link Demo 2</span>
-              </a>
-              <br />
-              <a href="https://bashiruismail.io/">
-                <span>
-                  <span>Link Demo 3</span>
-                </span>
-              </a>
-              <Button
-                color="primary"
-                className="mb-6"
-                fullWidth
-                onClick={() => {
-                  setPageLoading(true);
-                  setTimeout(() => {
-                    setPageLoading(false);
-                  }, 5000);
-                }}
+              <Subtitle data-aos="fade-up">Get in Touch</Subtitle>
+              <BigHeading
+                className="playful"
+                data-aos-delay="200"
+                data-aos="fade-up"
               >
-                Show Loading
-              </Button>
-              <p>
-                <Button href="#" color="lightOutline" className="rubber-band">
-                  lightOutline
-                </Button>
-              </p>
-              <Button type="submit" color="primary" showIconOnHover>
-                <span>Show Icon On Hover</span>
-                <HiArrowRight />
-              </Button>
-              <Button color="secondary">
-                <span>Test Icon AlignmenT</span>
-                <HiArrowRight />
-              </Button>
-              <Button color="light">Light</Button>
-              <Button href="#" color="primaryOutline">
-                primaryOutline
-              </Button>
-              <Button href="#" color="secondaryOutline">
-                secondaryOutline
-              </Button>
-              <p>
-                Extra Text <br />
-                Extra Text <br />
-                Extra Text <br />
-                Extra Text
-              </p>
+                {heading.split('').map((h, i) => (
+                  <span key={`h-${i}`}>{h}</span>
+                ))}
+              </BigHeading>
             </Col>
           </Row>
         </Container>
       </Section>
-      <Footer hideHire />
-      <CSSTransition
-        in={pageLoading}
-        timeout={300}
-        classNames="opacity-transition"
-        unmountOnExit
-      >
-        <LoadingScreen />
-      </CSSTransition>
+      <Section className="pt-2">
+        <Container>
+          <Row>
+            <Col fraction={2}>
+              <Spacing />
+              <div data-aos="fade-up" data-aos-duration="400">
+                <p className="big-text-1 contact-text">{callToAction}</p>
+                <p className="big-text-1 contact-text">
+                  You can send me an e-mail directly, connect with me on Social
+                  Media or complete the Contact Form. I’ll get back to you as
+                  soon as possible.
+                </p>
+                <Spacing />
+                <Spacing />
+                <p className="fade-text mb-0">E-MAIL:</p>
+                <p className="big-text-3 mb-0 mt-0">
+                  <a
+                    className="white-link-secondary"
+                    href={`mailto:${socialLinks.mail}`}
+                  >
+                    {socialLinks.mail}
+                  </a>
+                </p>
+                <Spacing />
+                <p className="fade-text mb-1">CONNECT:</p>
+                <ul className="footer-social pb-4">
+                  {socialLinks.github && (
+                    <li className="github">
+                      <a
+                        href={socialLinks.github}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <span className="social-icon">
+                          <IoLogoGithub />
+                        </span>
+                      </a>
+                    </li>
+                  )}
+                  {socialLinks.twitter && (
+                    <li className="twitter">
+                      <a
+                        href={socialLinks.twitter}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <span className="social-icon">
+                          <IoLogoTwitter />
+                        </span>
+                      </a>
+                    </li>
+                  )}
+                  {socialLinks.linkedin && (
+                    <li className="linkedin">
+                      <a
+                        href={socialLinks.linkedin}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <span className="social-icon">
+                          <IoLogoLinkedin />
+                        </span>
+                      </a>
+                    </li>
+                  )}
+                  {socialLinks.instagram && (
+                    <li className="instagram">
+                      <a
+                        href={socialLinks.instagram}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <span className="social-icon">
+                          <IoLogoInstagram />
+                        </span>
+                      </a>
+                    </li>
+                  )}
+                  {socialLinks.facebook && (
+                    <li className="facebook">
+                      <a
+                        href={socialLinks.facebook}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <span className="social-icon">
+                          <IoLogoFacebook />
+                        </span>
+                      </a>
+                    </li>
+                  )}
+                </ul>
+              </div>
+            </Col>
+            <Col fraction={2} data-aos-delay="600" data-aos="fade-up">
+              <H4>Fill out the form</H4>
+              <Formik
+                initialValues={initialValues}
+                validate={validateForm}
+                onSubmit={onSubmit}
+                innerRef={formRef}
+              >
+                {({ errors, values, touched, handleChange, handleBlur }) => (
+                  <Form autoComplete="off">
+                    <div
+                      className={`form-group${
+                        errors.name && touched.name ? ' error' : ''
+                      }`}
+                    >
+                      <label htmlFor="name">
+                        Your Name: <span className="red">*</span>
+                      </label>
+                      <Field
+                        className="form-control"
+                        name="name"
+                        maxLength={100}
+                        placeholder=""
+                      />
+                      {errors.name && touched.name && (
+                        <div className="error-text">{errors.name}</div>
+                      )}
+                    </div>
+                    <div
+                      className={`form-group${
+                        errors.email && touched.email ? ' error' : ''
+                      }`}
+                    >
+                      <label htmlFor="email">
+                        E-mail Address: <span className="red">*</span>
+                      </label>
+                      <Field
+                        className="form-control"
+                        name="email"
+                        maxLength={100}
+                        placeholder=""
+                      />
+                      {errors.email && touched.email && (
+                        <div className="error-text">{errors.email}</div>
+                      )}
+                    </div>
+                    <div
+                      className={`form-group${
+                        errors.how && touched.how ? ' error' : ''
+                      }`}
+                    >
+                      <label htmlFor="how">How did you learn about Me?</label>
+                      <select
+                        name="how"
+                        className="form-control"
+                        value={values.how}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                      >
+                        <option value="">Choose</option>
+                        <option value="Referred by Someone">
+                          Referred by Someone
+                        </option>
+                        <option value="Link from a Website I Made">
+                          Link from a Website I Made
+                        </option>
+                        <option value="Google Search">Google Search</option>
+                        <option value="Twitter">Twitter</option>
+                        <option value="Facebook">Facebook</option>
+                        <option value="Instagram">Instagram</option>
+                        <option value="LinkedIn">LinkedIn</option>
+                        <option value="GitHub">GitHub</option>
+                        <option value="We know one another">
+                          We know one another
+                        </option>
+                        <option value="At an Event">At an Event</option>
+                      </select>
+                      {errors.how && touched.how && (
+                        <div className="error-text">{errors.how}</div>
+                      )}
+                    </div>
+                    <div
+                      className={`form-group${
+                        errors.message && touched.message ? ' error' : ''
+                      }`}
+                    >
+                      <label htmlFor="message">
+                        Your Message <span className="red">*</span>
+                      </label>
+                      <Field
+                        className="form-control"
+                        name="message"
+                        maxLength={100}
+                        component="textarea"
+                        placeholder=""
+                      />
+                      {errors.message && touched.message && (
+                        <div className="error-text">{errors.message}</div>
+                      )}
+                    </div>
+                    <div className="mt-1 form-group">
+                      {!loadingSubmit && statusSubmit === 1 && (
+                        <div className="success-message">
+                          Message Sent Successfully!
+                        </div>
+                      )}
+                      {!loadingSubmit && statusSubmit === -1 && (
+                        <div className="error-message">
+                          Unexpected Error while trying to Send Message.
+                        </div>
+                      )}
+                      <Button
+                        type="submit"
+                        color="primary"
+                        disabled={loadingSubmit}
+                      >
+                        {loadingSubmit && <>Please Wait...</>}
+                        {!loadingSubmit && <>Send Message!</>}
+                      </Button>
+                    </div>
+                  </Form>
+                )}
+              </Formik>
+            </Col>
+          </Row>
+        </Container>
+      </Section>
+      <Footer hideHire hideSocial />
     </Root>
   );
 }

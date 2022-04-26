@@ -5,7 +5,7 @@ import { HiArrowRight } from 'react-icons/hi';
 import { Section, Container, Spacing, Row, Col } from '../Layout';
 import { BigHeading } from '../Heading';
 import Subtitle from '../Subtitle';
-import Button from '../Buttons';
+import Button from '../Button';
 import homeBannerStyles from './HomeBanner.styles';
 import theme from '../../constants/theme';
 import { devName, devNick } from '../../constants/defaultValues';

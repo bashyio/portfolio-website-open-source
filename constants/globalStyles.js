@@ -259,7 +259,9 @@ const globalStyles = css`
   }
 
   input,
-  button {
+  button,
+  select,
+  textarea {
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
@@ -278,7 +280,7 @@ const globalStyles = css`
   code,
   kbd,
   samp {
-    font-family: monospace, monospace;
+    font-family: monospace;
   }
 
   pre {
@@ -519,7 +521,7 @@ const globalStyles = css`
 
   .contact-text {
     ${mq(Breakpoints.tb)} {
-      max-width: 450px;
+      max-width: 470px;
     }
   }
 
@@ -658,6 +660,75 @@ const globalStyles = css`
     transition: opacity 0.5s;
     color: ${theme.colors.primary};
     text-shadow: 2px 2px 4px #000000;
+  }
+
+  .red {
+    color: #d91e18;
+  }
+
+  .form-group {
+    margin-bottom: 0.5em;
+    float: left;
+    width: 100%;
+
+    .form-control {
+      font-size: 15px;
+      transition: color 0.5s, background 0.5s, border 0.5s;
+      width: 100%;
+      background: ${theme.colors.darkGrey};
+      color: ${theme.colors.lightGrey};
+      outline: none;
+      float: left;
+      border: solid 2px ${theme.colors.darkGrey};
+      border-radius: 5px;
+      padding: 10px;
+
+      &:hover,
+      &:focus {
+        background: ${theme.colors.darkGrey};
+        color: ${theme.colors.light};
+        border-color: ${theme.colors.primary};
+      }
+    }
+
+    label {
+      display: block;
+      font-size: 16px;
+      color: ${theme.colors.light};
+    }
+
+    textarea {
+      min-height: 150px;
+    }
+
+    &.error {
+      .form-control {
+        border-color: #d91e18 !important;
+      }
+    }
+
+    & .error-text {
+      font-size: 14px;
+      font-weight: 500;
+      color: #d91e18 !important;
+    }
+  }
+
+  & .success-message,
+  & .error-message {
+    display: block;
+    float: left;
+    width: 100%;
+    padding: 11px;
+    font-size: 16px;
+    margin: 0.25em 0;
+    border-radius: 5px;
+  }
+  & .success-message {
+    background: #03a678;
+  }
+  & .error-message {
+    background: #d91e18;
   }
 
   .cursor.link {
@@ -1012,7 +1083,7 @@ const globalStyles = css`
 
     ${mq(Breakpoints.bs)} {
       height: 108px;
-      width: 108px;
+      width: 72px;
     }
 
     &.with-bg {
@@ -1021,7 +1092,7 @@ const globalStyles = css`
 
       ${mq(Breakpoints.ds)} {
         background: transparent;
-        width: 108px;
+        width: 72px;
       }
       ${mq(Breakpoints.bs)} {
         width: ${theme.logo.width.big + 48}px;

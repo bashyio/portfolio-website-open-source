@@ -11,7 +11,7 @@ import {
 } from 'react-icons/io5';
 import { Spacing, Section, Container, Row, Col } from '../Layout';
 import { H3 } from '../Heading';
-import Button from '../Buttons';
+import Button from '../Button';
 import Subtitle from '../Subtitle';
 import {
   callToAction,
@@ -19,12 +19,11 @@ import {
   copyrightText,
   copyrightUrl,
 } from '../../constants/defaultValues';
-import theme from '../../constants/theme';
 import footerStyles from './Footer.styles';
 
 function Footer({ hideHire, hideSocial, secondary }) {
   return (
-    <footer css={footerStyles(theme)}>
+    <footer css={footerStyles()}>
       <Section>
         <Container>
           {!hideHire && (

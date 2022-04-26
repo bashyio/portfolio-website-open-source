@@ -7,7 +7,7 @@ import { format } from 'date-fns';
 import Root from '../components/Root';
 import Footer from '../components/Footer';
 import { BigHeading, H3 } from '../components/Heading';
-import Button from '../components/Buttons';
+import Button from '../components/Button';
 import Subtitle from '../components/Subtitle';
 import { Section, Container, Row, Col, Spacing } from '../components/Layout';
 
@@ -42,7 +42,6 @@ export default function Blog() {
         <meta property="og:image:width" content="400" />
         <meta property="og:image:height" content="400" />
       </Head>
-      <Spacing />
       <Section data-aos="fade-up" className="pb-0">
         <Container>
           <Row>

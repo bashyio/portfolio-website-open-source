@@ -40,8 +40,7 @@ export default function About() {
         <meta property="og:image:width" content="400" />
         <meta property="og:image:height" content="400" />
       </Head>
-      <Spacing />
-      <Section data-aos="fade-up" className="pb-0">
+      <Section className="pb-0">
         <Container>
           <Row>
             <Col fraction={1}>
@@ -59,7 +58,7 @@ export default function About() {
           </Row>
         </Container>
       </Section>
-      <Section>
+      <Section className="pt-2">
         <Container>
           <Row>
             <Col fraction={3} size={2} data-aos-delay="400" data-aos="fade-up">

@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import { Breakpoints, mq } from '../../constants/mq';
 
-const footerStyles = (theme) => css`
+const footerStyles = () => css`
   & .col-inner {
     margin: 0 0 20px 0;
 

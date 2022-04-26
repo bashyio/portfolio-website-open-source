@@ -7,7 +7,7 @@ import Aos from 'aos';
 
 import Root from '../components/Root';
 import { H1, H2, H3, H4, H5, H6, BigHeading } from '../components/Heading';
-import Button from '../components/Buttons';
+import Button from '../components/Button';
 import Subtitle from '../components/Subtitle';
 import { Section, Container, Row, Col, Spacing } from '../components/Layout';
 import Footer from '../components/Footer';

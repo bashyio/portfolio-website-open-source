@@ -7,7 +7,7 @@ import { format } from 'date-fns';
 
 import Root from '../../components/Root';
 import { H3 } from '../../components/Heading';
-import Button from '../../components/Buttons';
+import Button from '../../components/Button';
 import { Section, Container, Row, Col, Spacing } from '../../components/Layout';
 import Footer from '../../components/Footer';
 import BlogBanner from '../../components/BlogBanner';

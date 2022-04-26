@@ -8,7 +8,7 @@ import Grid from '../components/Grid';
 import Footer from '../components/Footer';
 import HomeBannerSection from '../components/HomeBannerSection';
 import { BigHeading, H2 } from '../components/Heading';
-import Button from '../components/Buttons';
+import Button from '../components/Button';
 import Subtitle from '../components/Subtitle';
 import { Section, Container, Row, Col, Spacing } from '../components/Layout';
 

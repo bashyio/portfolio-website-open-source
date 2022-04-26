@@ -16,7 +16,7 @@ import 'swiper/css/scrollbar';
 
 import Root from '../../components/Root';
 import { H1, H2, H3 } from '../../components/Heading';
-import Button from '../../components/Buttons';
+import Button from '../../components/Button';
 import { Section, Container, Row, Col, Spacing } from '../../components/Layout';
 import Footer from '../../components/Footer';
 import LoadingScreen from '../../components/LoadingScreen';
