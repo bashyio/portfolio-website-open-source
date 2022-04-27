@@ -14,10 +14,6 @@ function Grid({ featured, filters, data, ...restProps }) {
   const [imagesReady, setImagesReady] = useState(false);
   const [gridLoading, setGridLoading] = useState(true);
 
-  const failedLoadImage = (func) => {
-    func();
-  };
-
   const startLoadImage = () => {
     const filteredData = featured ? data.filter((d) => d.featured) : data;
 
@@ -25,7 +21,7 @@ function Grid({ featured, filters, data, ...restProps }) {
       filteredData.map((p) => preLoadImage(fileBaseUrl + p.thumb.url))
     )
       .then(() => setImagesReady(true))
-      .catch(() => failedLoadImage(startLoadImage));
+      .catch(() => setImagesReady(true));
   };
 
   useEffect(() => {

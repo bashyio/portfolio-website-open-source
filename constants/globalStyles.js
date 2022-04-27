@@ -428,7 +428,6 @@ const globalStyles = css`
   strong,
   b {
     font-weight: 600;
-    color: ${theme.colors.dark};
   }
 
   .cursor {
@@ -664,6 +663,14 @@ const globalStyles = css`
 
   .red {
     color: ${theme.colors.error};
+  }
+
+  .margin-top-mobile {
+    margin-top: 2em;
+
+    ${mq(Breakpoints.tb)} {
+      margin-top: 0;
+    }
   }
 
   .form-group {

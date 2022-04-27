@@ -6,7 +6,7 @@ import ReactMarkdown from 'react-markdown';
 import Root from '../components/Root';
 import { BigHeading } from '../components/Heading';
 import Subtitle from '../components/Subtitle';
-import { Section, Container, Row, Col, Spacing } from '../components/Layout';
+import { Section, Container, Row, Col } from '../components/Layout';
 import Footer from '../components/Footer';
 import SkillCloud from '../components/SkillCloud';
 import {
@@ -66,7 +66,12 @@ export default function About() {
                 <ReactMarkdown>{aboutMe}</ReactMarkdown>
               </div>
             </Col>
-            <Col fraction={3} data-aos-delay="400" data-aos="zoom-in-up">
+            <Col
+              fraction={3}
+              data-aos-delay="400"
+              data-aos="fade-up"
+              className="margin-top-mobile"
+            >
               <div>
                 <img
                   src="/assets/img/portrait.jpg"
@@ -79,7 +84,6 @@ export default function About() {
               </div>
             </Col>
           </Row>
-          <Spacing />
         </Container>
       </Section>
       <Footer />

@@ -24,7 +24,7 @@ import footerStyles from './Footer.styles';
 function Footer({ hideHire, hideSocial, secondary }) {
   return (
     <footer css={footerStyles()}>
-      <Section>
+      <Section className={`${hideHire && hideSocial ? 'mt-0' : ''}`}>
         <Container>
           {!hideHire && (
             <>

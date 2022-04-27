@@ -28,7 +28,7 @@ export default function Contact() {
   const [loadingSubmit, setLoadingSubmit] = useState(false);
   const [statusSubmit, setStatusSubmit] = useState(0);
 
-  const heading = `Contact`;
+  const heading = `Contact Me`;
 
   const initialValues = {
     name: '',
@@ -215,8 +215,13 @@ export default function Contact() {
                 </ul>
               </div>
             </Col>
-            <Col fraction={2} data-aos-delay="600" data-aos="fade-up">
-              <H4>Fill out the form</H4>
+            <Col
+              fraction={2}
+              data-aos-delay="600"
+              data-aos="fade-up"
+              className="margin-top-mobile"
+            >
+              <H4 className="color-primary">Fill out the form</H4>
               <Formik
                 initialValues={initialValues}
                 validate={validateForm}

@@ -3,8 +3,8 @@ import { css } from '@emotion/react';
 const skillCloudStyles = (theme) => css`
   span {
     color: ${theme.colors.grey};
-    margin: 0 10px 5px 0;
-    font-size: 14px;
+    margin: 0 10px 0px 0;
+    font-size: 13px;
     display: inline-block;
     transition: color 0.3s, transform 0.5s;
 

@@ -35,10 +35,6 @@ export default function Portfolio() {
   const [imagesReady, setImagesReady] = useState(false);
   const [pageLoading, setPageLoading] = useState(true);
 
-  const failedLoadImage = (func) => {
-    func();
-  };
-
   const imageList = [portfolioSingle.thumb, ...portfolioSingle.gallery];
 
   const allImages = [
@@ -50,7 +46,7 @@ export default function Portfolio() {
   const startLoadImage = () => {
     Promise.all(allImages.map((p) => preLoadImage(fileBaseUrl + p.url)))
       .then(() => setImagesReady(true))
-      .catch(() => failedLoadImage(startLoadImage));
+      .catch(() => setImagesReady(true));
   };
 
   useEffect(() => {
