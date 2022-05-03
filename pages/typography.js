@@ -148,7 +148,7 @@ export default function Contact() {
           </Row>
         </Container>
       </Section>
-      <Footer hideHire />
+      <Footer />
       <CSSTransition
         in={pageLoading}
         timeout={300}
