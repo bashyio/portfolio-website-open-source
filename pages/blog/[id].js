@@ -43,7 +43,6 @@ export default function Blog() {
               new Date(blogSingle.publishDateTime),
               'yyyy-MM-dd KK:mm aaa'
             )}
-            shortDescrip={blogSingle.shortDescrip}
             image={blogSingle.thumb.url}
           />
           <Spacing />

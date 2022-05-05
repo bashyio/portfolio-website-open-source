@@ -6,7 +6,7 @@ import blogBannerStyles from './BlogBanner.styles';
 import theme from '../../constants/theme';
 import { fileBaseUrl } from '../../constants/defaultValues';
 
-function BlogBanner({ title, dateTime, shortDescrip, image }) {
+function BlogBanner({ title, dateTime, image }) {
   return (
     <div css={blogBannerStyles(theme)}>
       <Row>
@@ -18,7 +18,6 @@ function BlogBanner({ title, dateTime, shortDescrip, image }) {
         >
           <h4 className="date">{dateTime}</h4>
           <H1>{title}</H1>
-          <p>{shortDescrip}</p>
         </Col>
         <Col fraction={1} className="align-c">
           <img
@@ -36,13 +35,11 @@ function BlogBanner({ title, dateTime, shortDescrip, image }) {
 BlogBanner.propTypes = {
   title: PropTypes.string,
   dateTime: PropTypes.string,
-  shortDescrip: PropTypes.string,
   image: PropTypes.string,
 };
 BlogBanner.defaultProps = {
   title: '',
   dateTime: '',
-  shortDescrip: '',
   image: '',
 };
 export default memo(BlogBanner);
