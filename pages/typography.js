@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { HiArrowRight } from 'react-icons/hi';
 import { CSSTransition } from 'react-transition-group';
-import Aos from 'aos';
 
 import Root from '../components/Root';
 import { H1, H2, H3, H4, H5, H6, BigHeading } from '../components/Heading';
@@ -17,10 +16,6 @@ import { devName, siteMetaDescription } from '../constants/defaultValues';
 
 export default function Contact() {
   const [pageLoading, setPageLoading] = useState(false);
-
-  useEffect(() => {
-    Aos.refresh();
-  }, []);
 
   return (
     <Root>

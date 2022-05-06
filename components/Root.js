@@ -1,6 +1,4 @@
-/* eslint-disable jsx-a11y/mouse-events-have-key-events */
 import { useState, useEffect } from 'react';
-import throttle from 'lodash/throttle';
 import Aos from 'aos';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
@@ -10,8 +8,6 @@ import TopMenu from './TopMenu';
 import LoadingScreen from './LoadingScreen';
 import { PageMain } from './Layout';
 import theme from '../constants/theme';
-import { fixedNav } from '../helpers';
-import 'aos/dist/aos.css';
 
 function Root({ children }) {
   const [showLoading, setShowLoading] = useState(true);
@@ -21,27 +17,15 @@ function Root({ children }) {
       setShowLoading(false);
     }, 100);
 
-    Aos.init({
-      offset: 80,
-      duration: 1000,
-    });
+    Aos.refresh();
 
     setTimeout(() => {
       Aos.refresh();
-    }, 3000);
+    }, 4000);
 
-    window.addEventListener(
-      'scroll',
-      throttle(fixedNav, 100, { leading: true, trailing: true })
-    );
-
-    window.addEventListener('resize', () => {
+    setTimeout(() => {
       Aos.refresh();
-
-      setTimeout(() => {
-        Aos.refresh();
-      }, 1000);
-    });
+    }, 8000);
   });
 
   return (

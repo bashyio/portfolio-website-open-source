@@ -1,6 +1,5 @@
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import Head from 'next/head';
-import Aos from 'aos';
 import { HiArrowRight } from 'react-icons/hi';
 
 import Root from '../components/Root';
@@ -21,10 +20,6 @@ import {
 
 export default function Home() {
   const scrollToRef = useRef(null);
-
-  useEffect(() => {
-    Aos.refresh();
-  }, []);
 
   return (
     <Root>

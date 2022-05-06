@@ -7,7 +7,7 @@ const blogBannerStyles = (theme) => css`
     margin: auto;
 
     ${mq(Breakpoints.bs)} {
-      /* max-width: 700px; */
+      /* max-width: 800px; */
     }
   }
 
@@ -17,7 +17,7 @@ const blogBannerStyles = (theme) => css`
   }
 
   & img {
-    border-radius: 10px;
+    border-radius: 8px;
     margin-top: 2em;
   }
 `;

@@ -1,18 +1,49 @@
 /* eslint-disable jsx-a11y/mouse-events-have-key-events */
 import { useState, useEffect, useRef } from 'react';
+import throttle from 'lodash/throttle';
 import { useRouter } from 'next/router';
 import { Global } from '@emotion/react';
 import { CSSTransition } from 'react-transition-group';
 import PropTypes from 'prop-types';
+import { CgArrowAlignH } from 'react-icons/cg';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 import globalStyles from '../constants/globalStyles';
 import LoadingScreen from '../components/LoadingScreen';
-import { cursorLink } from '../helpers';
+import { cursorLink, fixedNav } from '../helpers';
 
 function MyApp({ Component, pageProps }) {
   const cursorRef = useRef();
   const router = useRouter();
   const [showLoading, setShowLoading] = useState(false);
+  const [currentUrl, setCurrentUrl] = useState(router.asPath);
+
+  useEffect(() => {
+    Aos.init({
+      offset: 60,
+      duration: 1000,
+    });
+
+    const fixedNavScroll = () =>
+      throttle(fixedNav, 100, { leading: true, trailing: true });
+
+    const refreshAOS = () => {
+      Aos.refresh();
+
+      setTimeout(() => {
+        Aos.refresh();
+      }, 1000);
+    };
+
+    window.addEventListener('scroll', fixedNavScroll);
+    window.addEventListener('resize', refreshAOS);
+    return () => {
+      window.removeEventListener('scroll', fixedNavScroll);
+      window.removeEventListener('resize', refreshAOS);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     const startLoading = (url) => {
@@ -38,7 +69,21 @@ function MyApp({ Component, pageProps }) {
       router.events.off('routeChangeComplete', stopLoading);
       router.events.off('routeChangeError', stopLoading);
     };
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentUrl]);
+
+  useEffect(() => {
+    const updateUrl = (url) => {
+      setCurrentUrl(url);
+    };
+
+    router.events.on('routeChangeComplete', updateUrl);
+
+    return () => {
+      router.events.off('routeChangeComplete', updateUrl);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const mouseLeave = () => {
     cursorRef.current.style.display = 'none';
@@ -97,7 +142,11 @@ function MyApp({ Component, pageProps }) {
         </CSSTransition>
         <Component {...pageProps} />
       </div>
-      <div className="cursor" ref={cursorRef} style={{}} />
+      <div className="cursor" ref={cursorRef} style={{}}>
+        <div className="cursor-inside">
+          <CgArrowAlignH />
+        </div>
+      </div>
     </>
   );
 }

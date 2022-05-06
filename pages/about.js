@@ -1,6 +1,4 @@
-import { useEffect } from 'react';
 import Head from 'next/head';
-import Aos from 'aos';
 import ReactMarkdown from 'react-markdown';
 
 import Root from '../components/Root';
@@ -19,10 +17,6 @@ import {
 
 export default function About() {
   const heading = `About ${devNick}`;
-
-  useEffect(() => {
-    Aos.refresh();
-  }, []);
 
   return (
     <Root>

@@ -1,7 +1,5 @@
-import { useEffect } from 'react';
 import Head from 'next/head';
 import { HiChevronRight } from 'react-icons/hi';
-import Aos from 'aos';
 import ReactMarkdown from 'react-markdown';
 import { format } from 'date-fns';
 
@@ -15,10 +13,6 @@ import BlogBanner from '../../components/BlogBanner';
 import { blogSingle } from '../../constants/defaultValues';
 
 export default function Blog() {
-  useEffect(() => {
-    Aos.refresh();
-  }, []);
-
   return (
     <Root>
       <Head>
@@ -48,11 +42,11 @@ export default function Blog() {
           <Spacing />
         </Container>
       </Section>
-      <Section data-aos="fade-up">
+      <Section>
         <Container>
           <Row>
             <Col fraction={1}>
-              <div className="big-text-1">
+              <div className="blog-content">
                 <ReactMarkdown>{blogSingle.content}</ReactMarkdown>
               </div>
             </Col>
@@ -69,11 +63,7 @@ export default function Blog() {
           <Row>
             <Col fraction={1}>
               <H3>{blogSingle.title}</H3>
-              <Button
-                href={blogSingle.previewUrl}
-                color="secondaryOutline"
-                externalLink
-              >
+              <Button href={blogSingle.previewUrl} color="secondaryOutline">
                 <span>Next Article</span>
                 <HiChevronRight />
               </Button>

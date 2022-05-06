@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { HiChevronRight, HiExternalLink } from 'react-icons/hi';
 import { CSSTransition } from 'react-transition-group';
-import Aos from 'aos';
 import ReactMarkdown from 'react-markdown';
 import { Keyboard, FreeMode, Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -52,10 +51,6 @@ export default function Portfolio() {
   useEffect(() => {
     startLoadImage();
   });
-
-  useEffect(() => {
-    Aos.refresh();
-  }, []);
 
   useEffect(() => {
     if (imagesReady) {
@@ -162,7 +157,7 @@ export default function Portfolio() {
           {imageList.map((image, index) => (
             <SwiperSlide key={`image-slide-${index}`}>
               <img
-                src={image.url}
+                src={`${fileBaseUrl}${image.url}`}
                 className="swiper-image"
                 alt={image.name || 'Slider Image'}
               />
@@ -188,7 +183,6 @@ export default function Portfolio() {
               <Button
                 href={portfolioSingle.previewUrl}
                 color="secondaryOutline"
-                externalLink
               >
                 <span>Next Project</span>
                 <HiChevronRight />

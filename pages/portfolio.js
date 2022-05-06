@@ -1,6 +1,4 @@
-import { useEffect } from 'react';
 import Head from 'next/head';
-import Aos from 'aos';
 
 import Root from '../components/Root';
 import Grid from '../components/Grid';
@@ -19,10 +17,6 @@ import {
 
 export default function Portfolio() {
   const heading = 'Portfolio';
-
-  useEffect(() => {
-    Aos.refresh();
-  }, []);
 
   return (
     <Root>

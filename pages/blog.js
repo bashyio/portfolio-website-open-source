@@ -1,7 +1,5 @@
-import { useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import Aos from 'aos';
 import { format } from 'date-fns';
 
 import Root from '../components/Root';
@@ -21,10 +19,6 @@ import {
 
 export default function Blog() {
   const heading = `${devNick}’s Blog`;
-
-  useEffect(() => {
-    Aos.refresh();
-  }, []);
 
   return (
     <Root>

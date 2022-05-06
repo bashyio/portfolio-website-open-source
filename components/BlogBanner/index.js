@@ -10,22 +10,14 @@ function BlogBanner({ title, dateTime, image }) {
   return (
     <div css={blogBannerStyles(theme)}>
       <Row>
-        <Col
-          fraction={1}
-          className="align-c blog-header"
-          data-aos="fade-up"
-          data-aos-delay="300"
-        >
-          <h4 className="date">{dateTime}</h4>
-          <H1>{title}</H1>
+        <Col fraction={1} className="align-c blog-header">
+          <p className="date mb-1" data-aos="fade-up">
+            {dateTime}
+          </p>
+          <H1 data-aos="fade-up">{title}</H1>
         </Col>
         <Col fraction={1} className="align-c">
-          <img
-            src={`${fileBaseUrl}${image}`}
-            alt={title}
-            data-aos="zoom-in-up"
-            data-aos-delay="300"
-          />
+          <img src={`${fileBaseUrl}${image}`} alt={title} />
         </Col>
       </Row>
     </div>

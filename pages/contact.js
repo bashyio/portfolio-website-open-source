@@ -1,6 +1,5 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useRef } from 'react';
 import Head from 'next/head';
-import Aos from 'aos';
 import {
   IoLogoGithub,
   IoLogoTwitter,
@@ -82,10 +81,6 @@ export default function Contact() {
 
     return null;
   };
-
-  useEffect(() => {
-    Aos.refresh();
-  }, []);
 
   return (
     <Root>
