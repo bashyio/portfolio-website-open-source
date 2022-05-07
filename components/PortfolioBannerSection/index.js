@@ -9,12 +9,11 @@ import theme from '../../constants/theme';
 function PortfolioBannerSection({ title, shortDescrip, type }) {
   return (
     <div css={portfolioBannerStyles(theme)}>
-      <Section>
+      <Section className="pt-3">
         <Container>
-          <Spacing />
           <Row>
             <Col fraction={2}>
-              <Subtitle data-aos="fade-down" data-aos-delay="300">
+              <Subtitle data-aos="fade-up" data-aos-delay="150">
                 {type}
               </Subtitle>
               <BigHeading data-aos="fade-up" data-aos-delay="300">
@@ -26,11 +25,7 @@ function PortfolioBannerSection({ title, shortDescrip, type }) {
               </BigHeading>
             </Col>
             <Col fraction={2}>
-              <div
-                className="align-l"
-                data-aos="fade-left"
-                data-aos-delay="300"
-              >
+              <div className="align-l" data-aos="fade-up" data-aos-delay="300">
                 <p className="big-text-3 short-descrip">{shortDescrip}</p>
               </div>
             </Col>

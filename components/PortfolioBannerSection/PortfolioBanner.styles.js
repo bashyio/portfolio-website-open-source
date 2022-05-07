@@ -1,23 +1,10 @@
 import { css } from '@emotion/react';
-import { breakpoints, Breakpoints, mq } from '../../constants/mq';
+import { Breakpoints, mq } from '../../constants/mq';
 
 const portfolioBannerStyles = (theme) => css`
-  @media screen and (min-width: ${breakpoints[3]}px) and (max-width: ${breakpoints[4]}px) {
-    & section {
-      margin-top: -108px;
-      padding-top: 108px;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-    }
-    & .row,
-    & .container {
-      height: 100%;
-    }
-  }
-
   & section {
     ${mq(Breakpoints.gs)} {
+      padding-top: 72px !important;
       padding-bottom: 72px;
     }
   }

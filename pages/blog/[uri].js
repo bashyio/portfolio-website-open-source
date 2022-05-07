@@ -47,7 +47,9 @@ export default function Blog() {
           <Row>
             <Col fraction={1}>
               <div className="blog-content">
-                <ReactMarkdown>{blogSingle.content}</ReactMarkdown>
+                <ReactMarkdown linkTarget="_blank">
+                  {blogSingle.content}
+                </ReactMarkdown>
               </div>
             </Col>
           </Row>

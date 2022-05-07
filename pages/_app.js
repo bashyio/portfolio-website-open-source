@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/mouse-events-have-key-events */
 import { useState, useEffect, useRef } from 'react';
+import Head from 'next/head';
 import throttle from 'lodash/throttle';
 import { useRouter } from 'next/router';
 import { Global } from '@emotion/react';
@@ -10,6 +11,7 @@ import Aos from 'aos';
 import 'aos/dist/aos.css';
 
 import globalStyles from '../constants/globalStyles';
+import { devName } from '../constants/defaultValues';
 import LoadingScreen from '../components/LoadingScreen';
 import { cursorLink, fixedNav } from '../helpers';
 
@@ -25,9 +27,6 @@ function MyApp({ Component, pageProps }) {
       duration: 1000,
     });
 
-    const fixedNavScroll = () =>
-      throttle(fixedNav, 100, { leading: true, trailing: true });
-
     const refreshAOS = () => {
       Aos.refresh();
 
@@ -36,10 +35,16 @@ function MyApp({ Component, pageProps }) {
       }, 1000);
     };
 
-    window.addEventListener('scroll', fixedNavScroll);
+    window.addEventListener(
+      'scroll',
+      throttle(fixedNav, 100, { leading: true, trailing: true })
+    );
     window.addEventListener('resize', refreshAOS);
     return () => {
-      window.removeEventListener('scroll', fixedNavScroll);
+      window.removeEventListener(
+        'scroll',
+        throttle(fixedNav, 100, { leading: true, trailing: true })
+      );
       window.removeEventListener('resize', refreshAOS);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -131,6 +136,9 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Global styles={globalStyles} />
+      <Head>
+        <title>{devName}</title>
+      </Head>
       <div id="app-container">
         <CSSTransition
           in={showLoading}

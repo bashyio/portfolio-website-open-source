@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { HiArrowRight } from 'react-icons/hi';
+import { HiArrowLeft, HiArrowRight } from 'react-icons/hi';
 import { CSSTransition } from 'react-transition-group';
 
 import Root from '../components/Root';
@@ -122,8 +122,12 @@ export default function Contact() {
                 <span>Show Icon On Hover</span>
                 <HiArrowRight />
               </Button>
+              <Button color="secondary" leftIcon>
+                <HiArrowLeft />
+                <span>Test Icon 1</span>
+              </Button>
               <Button color="secondary">
-                <span>Test Icon AlignmenT</span>
+                <span>Test Icon 2</span>
                 <HiArrowRight />
               </Button>
               <Button color="light">Light</Button>

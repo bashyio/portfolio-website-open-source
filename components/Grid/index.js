@@ -68,7 +68,7 @@ function Grid({ featured, filters, data, ...restProps }) {
             <div className="grid-holder" css={gridStyles(theme)}>
               {data.map((project) => (
                 <Fragment key={project.viewOrder}>
-                  {featured === project.featured && (
+                  {(!featured || featured === project.featured) && (
                     <Card
                       visible={filter === 'all' || project.type === filter}
                       data={{

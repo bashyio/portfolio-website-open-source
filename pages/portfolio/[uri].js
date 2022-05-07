@@ -34,13 +34,9 @@ export default function Portfolio() {
   const [imagesReady, setImagesReady] = useState(false);
   const [pageLoading, setPageLoading] = useState(true);
 
-  const imageList = [portfolioSingle.thumb, ...portfolioSingle.gallery];
+  const imageList = [portfolioSingle.gallery];
 
-  const allImages = [
-    portfolioSingle.thumb,
-    portfolioSingle.parallax,
-    ...portfolioSingle.gallery,
-  ];
+  const allImages = [portfolioSingle.parallax, ...portfolioSingle.gallery];
 
   const startLoadImage = () => {
     Promise.all(allImages.map((p) => preLoadImage(fileBaseUrl + p.url)))
@@ -92,7 +88,9 @@ export default function Portfolio() {
             <Col fraction={3} size={2} data-aos="fade-up">
               <H2 className="color-primary">Overview</H2>
               <div className="big-text-1">
-                <ReactMarkdown>{portfolioSingle.content}</ReactMarkdown>
+                <ReactMarkdown linkTarget="_blank">
+                  {portfolioSingle.content}
+                </ReactMarkdown>
               </div>
             </Col>
             <Col fraction={3}>

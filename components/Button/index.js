@@ -8,6 +8,7 @@ function Button({
   color,
   showIconOnHover,
   externalLink,
+  leftIcon,
   fullWidth,
   children,
   href,
@@ -23,7 +24,13 @@ function Button({
             href={href}
             target="_blank"
             rel="noreferrer"
-            css={buttonStyles(theme, color, fullWidth, showIconOnHover)}
+            css={buttonStyles(
+              theme,
+              color,
+              fullWidth,
+              leftIcon,
+              showIconOnHover
+            )}
           >
             {children}
           </a>
@@ -32,7 +39,13 @@ function Button({
           <Link href={href}>
             <a
               {...restProps}
-              css={buttonStyles(theme, color, fullWidth, showIconOnHover)}
+              css={buttonStyles(
+                theme,
+                color,
+                fullWidth,
+                leftIcon,
+                showIconOnHover
+              )}
             >
               {children}
             </a>
@@ -46,7 +59,7 @@ function Button({
     <button
       {...restProps}
       type={type}
-      css={buttonStyles(theme, color, fullWidth, showIconOnHover)}
+      css={buttonStyles(theme, color, fullWidth, leftIcon, showIconOnHover)}
     >
       {children}
     </button>
@@ -54,6 +67,7 @@ function Button({
 }
 
 Button.propTypes = {
+  leftIcon: PropTypes.bool,
   fullWidth: PropTypes.bool,
   showIconOnHover: PropTypes.bool,
   externalLink: PropTypes.bool,
@@ -63,6 +77,7 @@ Button.propTypes = {
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 };
 Button.defaultProps = {
+  leftIcon: false,
   fullWidth: false,
   showIconOnHover: false,
   externalLink: false,
