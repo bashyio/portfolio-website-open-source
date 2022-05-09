@@ -5,10 +5,14 @@ const parallaxSectionStyles = (image) => css`
   background-image: url(${image});
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 50% 50%;
-  background-attachment: fixed;
   height: 360px;
   max-height: 100vh;
+  transition: all 0.5s;
+
+  ${mq(Breakpoints.ds)} {
+    background-attachment: fixed;
+    background-position: 50% 50%;
+  }
 
   ${mq(Breakpoints.tb)} {
     height: 768px;
