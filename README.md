@@ -1,6 +1,6 @@
 Portfolio Website built using Next.js + React.js
 
-This is a static version of my Portfolio Website: [https://bashiruismail.io](https://bashiruismail.io)
+This is a static version of my Portfolio Website: [https://bashy.dev](https://bashy.dev)
 The live website is an extended version of this project and it uses Strapi (a Headless CMS) for the back-end.
 You can fork the repo and extend the project as you wish to suit your back-end preferences.
 
