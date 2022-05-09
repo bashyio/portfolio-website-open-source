@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import { HiChevronRight } from 'react-icons/hi';
 import ReactMarkdown from 'react-markdown';
 import { format } from 'date-fns';
@@ -10,25 +9,15 @@ import { Section, Container, Row, Col, Spacing } from '../../components/Layout';
 import Footer from '../../components/Footer';
 import BlogBanner from '../../components/BlogBanner';
 
-import { blogSingle } from '../../constants/defaultValues';
+import { fileBaseUrl, blogSingle } from '../../constants/defaultValues';
 
 export default function Blog() {
   return (
-    <Root>
-      <Head>
-        <title>{blogSingle.title}</title>
-        <meta name="description" content={blogSingle.shortDescrip} />
-        <meta property="og:title" content={blogSingle.title} />
-        <meta property="og:description" content={blogSingle.shortDescrip} />
-        <meta property="og:image" content="/og-image.jpg" />
-        <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:image" content="/og-image-2.jpg" />
-        <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:image:width" content="400" />
-        <meta property="og:image:height" content="400" />
-      </Head>
+    <Root
+      title={blogSingle.title}
+      description={blogSingle.shortDescrip}
+      banner={`${fileBaseUrl}${blogSingle.thumb.url}`}
+    >
       <Section>
         <Container>
           <BlogBanner

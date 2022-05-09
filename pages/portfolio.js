@@ -1,5 +1,3 @@
-import Head from 'next/head';
-
 import Root from '../components/Root';
 import Grid from '../components/Grid';
 import Footer from '../components/Footer';
@@ -19,21 +17,7 @@ export default function Portfolio() {
   const heading = 'Portfolio';
 
   return (
-    <Root>
-      <Head>
-        <title>Portfolio - {devName}</title>
-        <meta name="description" content={siteMetaDescription} />
-        <meta property="og:title" content={`Portfolio - ${devName}`} />
-        <meta property="og:description" content={siteMetaDescription} />
-        <meta property="og:image" content="/og-image.jpg" />
-        <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:image" content="/og-image-2.jpg" />
-        <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:image:width" content="400" />
-        <meta property="og:image:height" content="400" />
-      </Head>
+    <Root title={`Portfolio - ${devName}`} description={siteMetaDescription}>
       <Section data-aos="fade-up" className="pb-0">
         <Container>
           <Row>

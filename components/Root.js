@@ -9,7 +9,13 @@ import LoadingScreen from './LoadingScreen';
 import { PageMain } from './Layout';
 import theme from '../constants/theme';
 
-function Root({ children }) {
+import {
+  devName,
+  siteMetaDescription,
+  appBaseUrl,
+} from '../constants/defaultValues';
+
+function Root({ title, description, banner, children }) {
   const [showLoading, setShowLoading] = useState(true);
 
   useEffect(() => {
@@ -57,9 +63,17 @@ function Root({ children }) {
           href="/apple-touch-icon-180.png"
         />
         <link rel="manifest" href="/manifest.json" />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={banner} />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@bashy_io" />
         <meta name="twitter:creator" content="@bashy_io" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={banner} />
       </Head>
       <>
         <TopMenu setShowLoading={setShowLoading} />
@@ -79,9 +93,15 @@ function Root({ children }) {
 
 Root.propTypes = {
   children: PropTypes.node,
+  title: PropTypes.string,
+  description: PropTypes.string,
+  banner: PropTypes.string,
 };
 Root.defaultProps = {
   children: <p />,
+  title: devName,
+  description: siteMetaDescription,
+  banner: `${appBaseUrl}/og-image.jpg`,
 };
 
 export default Root;

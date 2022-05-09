@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Head from 'next/head';
 import Link from 'next/link';
 import { HiArrowLeft, HiArrowRight } from 'react-icons/hi';
 import { CSSTransition } from 'react-transition-group';
@@ -18,21 +17,7 @@ export default function Contact() {
   const [pageLoading, setPageLoading] = useState(false);
 
   return (
-    <Root>
-      <Head>
-        <title>Typography - {devName}</title>
-        <meta name="description" content={siteMetaDescription} />
-        <meta property="og:title" content={`Typography - ${devName}`} />
-        <meta property="og:description" content={siteMetaDescription} />
-        <meta property="og:image" content="/og-image.jpg" />
-        <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:image" content="/og-image-2.jpg" />
-        <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:image:width" content="400" />
-        <meta property="og:image:height" content="400" />
-      </Head>
+    <Root title={`Typography - ${devName}`} description={siteMetaDescription}>
       <Section data-aos="fade-up">
         <Container>
           <Row>

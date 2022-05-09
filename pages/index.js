@@ -1,5 +1,4 @@
 import { useRef } from 'react';
-import Head from 'next/head';
 import { HiArrowRight } from 'react-icons/hi';
 
 import Root from '../components/Root';
@@ -22,21 +21,7 @@ export default function Home() {
   const scrollToRef = useRef(null);
 
   return (
-    <Root>
-      <Head>
-        <title>{siteTitle}</title>
-        <meta name="description" content={siteMetaDescription} />
-        <meta property="og:title" content={siteTitle} />
-        <meta property="og:description" content={siteMetaDescription} />
-        <meta property="og:image" content="/og-image.jpg" />
-        <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:image" content="/og-image-2.jpg" />
-        <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:image:width" content="400" />
-        <meta property="og:image:height" content="400" />
-      </Head>
+    <Root title={siteTitle} description={siteMetaDescription}>
       <HomeBannerSection scrollToRef={scrollToRef} />
       <div ref={scrollToRef} />
       <Spacing size={4} />

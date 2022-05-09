@@ -1,5 +1,4 @@
 import { useState, useRef } from 'react';
-import Head from 'next/head';
 import {
   IoLogoGithub,
   IoLogoTwitter,
@@ -83,21 +82,7 @@ export default function Contact() {
   };
 
   return (
-    <Root>
-      <Head>
-        <title>Contact - {devName}</title>
-        <meta name="description" content={siteMetaDescription} />
-        <meta property="og:title" content={`Contact - ${devName}`} />
-        <meta property="og:description" content={siteMetaDescription} />
-        <meta property="og:image" content="/og-image.jpg" />
-        <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:image" content="/og-image-2.jpg" />
-        <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:image:width" content="400" />
-        <meta property="og:image:height" content="400" />
-      </Head>
+    <Root title={`Contact - ${devName}`} description={siteMetaDescription}>
       <Section className="pb-0">
         <Container>
           <Row>

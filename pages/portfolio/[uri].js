@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable import/no-unresolved */
 import { useEffect, useState } from 'react';
-import Head from 'next/head';
 import { HiChevronRight, HiExternalLink } from 'react-icons/hi';
 import { CSSTransition } from 'react-transition-group';
 import ReactMarkdown from 'react-markdown';
@@ -57,24 +56,11 @@ export default function Portfolio() {
   }, [imagesReady]);
 
   return (
-    <Root>
-      <Head>
-        <title>{portfolioSingle.title}</title>
-        <meta name="description" content={portfolioSingle.shortDescrip} />
-        <meta property="og:title" content={portfolioSingle.title} />
-        <meta
-          property="og:description"
-          content={portfolioSingle.shortDescrip}
-        />
-        <meta property="og:image" content="/og-image.jpg" />
-        <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:image" content="/og-image-2.jpg" />
-        <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:image:width" content="400" />
-        <meta property="og:image:height" content="400" />
-      </Head>
+    <Root
+      title={portfolioSingle.title}
+      description={portfolioSingle.shortDescrip}
+      banner={`${fileBaseUrl}${portfolioSingle.thumb.url}`}
+    >
       <PortfolioBannerSection
         title={portfolioSingle.title}
         type={portfolioType[portfolioSingle.type]}

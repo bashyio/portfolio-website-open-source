@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Link from 'next/link';
 import { format } from 'date-fns';
 
@@ -21,21 +20,7 @@ export default function Blog() {
   const heading = `${devNick}’s Blog`;
 
   return (
-    <Root>
-      <Head>
-        <title>Blog - {devName}</title>
-        <meta name="description" content={siteMetaDescription} />
-        <meta property="og:title" content={`Blog - ${devName}`} />
-        <meta property="og:description" content={siteMetaDescription} />
-        <meta property="og:image" content="/og-image.jpg" />
-        <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:image" content="/og-image-2.jpg" />
-        <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:image:width" content="400" />
-        <meta property="og:image:height" content="400" />
-      </Head>
+    <Root title={`Blog - ${devName}`} description={siteMetaDescription}>
       <Section data-aos="fade-up" className="pb-0">
         <Container>
           <Row>

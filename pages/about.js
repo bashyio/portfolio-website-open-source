@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import ReactMarkdown from 'react-markdown';
 
 import Root from '../components/Root';
@@ -19,21 +18,7 @@ export default function About() {
   const heading = `About ${devNick}`;
 
   return (
-    <Root>
-      <Head>
-        <title>About - {devName}</title>
-        <meta name="description" content={siteMetaDescription} />
-        <meta property="og:title" content={`About - ${devName}`} />
-        <meta property="og:description" content={siteMetaDescription} />
-        <meta property="og:image" content="/og-image.jpg" />
-        <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:image" content="/og-image-2.jpg" />
-        <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:image:width" content="400" />
-        <meta property="og:image:height" content="400" />
-      </Head>
+    <Root title={`About - ${devName}`} description={siteMetaDescription}>
       <Section className="pb-0">
         <Container>
           <Row>
