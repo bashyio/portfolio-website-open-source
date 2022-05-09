@@ -12,7 +12,13 @@ import { filterStyles, gridStyles } from './Grid.styles';
 function Grid({ featured, filters, data, ...restProps }) {
   const [filter, setFilter] = useState('all');
   const [imagesReady, setImagesReady] = useState(false);
-  const [gridLoading, setGridLoading] = useState(true);
+
+  const finishLoading = () => {
+    setImagesReady(true);
+    setTimeout(() => {
+      Aos.refresh();
+    }, 200);
+  };
 
   const startLoadImage = () => {
     const filteredData = featured ? data.filter((d) => d.featured) : data;
@@ -20,8 +26,8 @@ function Grid({ featured, filters, data, ...restProps }) {
     Promise.all(
       filteredData.map((p) => preLoadImage(fileBaseUrl + p.thumb.url))
     )
-      .then(() => setImagesReady(true))
-      .catch(() => setImagesReady(true));
+      .then(() => finishLoading())
+      .catch(() => finishLoading());
   };
 
   useEffect(() => {
@@ -32,15 +38,7 @@ function Grid({ featured, filters, data, ...restProps }) {
     Aos.refresh();
   }, [filter]);
 
-  useEffect(() => {
-    if (imagesReady) {
-      setTimeout(() => {
-        setGridLoading(false);
-      }, 200);
-    }
-  }, [imagesReady]);
-
-  return gridLoading ? (
+  return !imagesReady ? (
     <LoadingScreen />
   ) : (
     <Section {...restProps}>
