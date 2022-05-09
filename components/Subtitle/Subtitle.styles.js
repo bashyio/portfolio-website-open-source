@@ -4,7 +4,6 @@ import { Breakpoints, mq } from '../../constants/mq';
 const contentStyles = (theme, color) => css`
   color: ${theme.colors[`${color}`]};
   font-size: 18px;
-  height: 30px;
   line-height: 30px;
   position: relative;
 

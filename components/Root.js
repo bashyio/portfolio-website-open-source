@@ -28,10 +28,6 @@ function Root({ title, description, banner, children }) {
     setTimeout(() => {
       Aos.refresh();
     }, 4000);
-
-    setTimeout(() => {
-      Aos.refresh();
-    }, 8000);
   });
 
   return (
