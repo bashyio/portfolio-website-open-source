@@ -86,3 +86,9 @@ export const scrollToElement = (element) => {
     });
   }
 };
+
+export const tooSlowFallback = (setValue, time) => {
+  setTimeout(() => {
+    setValue(true);
+  }, time);
+};

@@ -27,7 +27,7 @@ import {
   portfolioType,
   portfolioSingle,
 } from '../../constants/defaultValues';
-import { preLoadImage } from '../../helpers';
+import { preLoadImage, tooSlowFallback } from '../../helpers';
 
 export default function Portfolio() {
   const [imagesReady, setImagesReady] = useState(false);
@@ -36,6 +36,7 @@ export default function Portfolio() {
   const imageList = [portfolioSingle.gallery];
 
   const startLoadImage = () => {
+    tooSlowFallback(setImagesReady, 1000);
     Promise.all(
       [portfolioSingle.parallax, ...portfolioSingle.gallery].map((p) =>
         preLoadImage(fileBaseUrl + p.url)
@@ -47,7 +48,7 @@ export default function Portfolio() {
 
   useEffect(() => {
     startLoadImage();
-  });
+  }, []);
 
   useEffect(() => {
     if (imagesReady) {

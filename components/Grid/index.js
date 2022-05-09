@@ -4,7 +4,7 @@ import Aos from 'aos';
 import { Section, Container, Col, Row } from '../Layout';
 import theme from '../../constants/theme';
 import { fileBaseUrl } from '../../constants/defaultValues';
-import { preLoadImage } from '../../helpers';
+import { preLoadImage, tooSlowFallback } from '../../helpers';
 import Card from './Card';
 import LoadingScreen from '../LoadingScreen';
 import { filterStyles, gridStyles } from './Grid.styles';
@@ -21,6 +21,7 @@ function Grid({ featured, filters, data, ...restProps }) {
   };
 
   const startLoadImage = () => {
+    tooSlowFallback(setImagesReady, 1000);
     const filteredData = featured ? data.filter((d) => d.featured) : data;
 
     Promise.all(
@@ -32,7 +33,8 @@ function Grid({ featured, filters, data, ...restProps }) {
 
   useEffect(() => {
     startLoadImage();
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     Aos.refresh();
