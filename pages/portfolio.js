@@ -7,7 +7,6 @@ import { Section, Container, Row, Col } from '../components/Layout';
 
 import {
   devName,
-  siteMetaDescription,
   portfolioFilters,
   portfolioGridData,
   portfolioDescription,
@@ -17,7 +16,7 @@ export default function Portfolio() {
   const heading = 'Portfolio';
 
   return (
-    <Root title={`Portfolio - ${devName}`} description={siteMetaDescription}>
+    <Root title={`Portfolio - ${devName}`} description={portfolioDescription}>
       <Section data-aos="fade-up" className="pb-0">
         <Container>
           <Row>

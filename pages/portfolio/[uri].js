@@ -35,10 +35,12 @@ export default function Portfolio() {
 
   const imageList = [portfolioSingle.gallery];
 
-  const allImages = [portfolioSingle.parallax, ...portfolioSingle.gallery];
-
   const startLoadImage = () => {
-    Promise.all(allImages.map((p) => preLoadImage(fileBaseUrl + p.url)))
+    Promise.all(
+      [portfolioSingle.parallax, ...portfolioSingle.gallery].map((p) =>
+        preLoadImage(fileBaseUrl + p.url)
+      )
+    )
       .then(() => setImagesReady(true))
       .catch(() => setImagesReady(true));
   };
