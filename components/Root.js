@@ -60,11 +60,13 @@ function Root({ title, description, banner, children }) {
         />
         <link rel="manifest" href="/manifest.json" />
         <title>{title}</title>
+        <meta property="og:locale" content="en_GB" />
+        <meta property="og:type" content="website" />
         <meta name="description" content={description} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={banner} />
-        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@bashy_io" />
         <meta name="twitter:creator" content="@bashy_io" />
         <meta name="twitter:title" content={title} />
