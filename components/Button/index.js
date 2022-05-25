@@ -73,7 +73,7 @@ Button.propTypes = {
   externalLink: PropTypes.bool,
   color: PropTypes.string,
   href: PropTypes.string,
-  type: PropTypes.string,
+  type: PropTypes.oneOf(['button', 'submit', 'reset']),
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 };
 Button.defaultProps = {
