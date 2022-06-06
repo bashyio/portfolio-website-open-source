@@ -76,6 +76,7 @@ Button.propTypes = {
   type: PropTypes.oneOf(['button', 'submit', 'reset']),
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 };
+
 Button.defaultProps = {
   leftIcon: false,
   fullWidth: false,
