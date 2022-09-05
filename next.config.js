@@ -5,10 +5,9 @@ const nextConfig = {
     domains: [
       'localhost',
       'localhost:3000',
-      'bashiruismail.io',
-      'bashiruismail.com',
-      'api.bashiruismail.io',
-      'strapi.bashiruismail.io',
+      'yourdomain.com',
+      'api.yourdomain.com',
+      'strapi.yourdomain.com',
     ],
   },
 };
