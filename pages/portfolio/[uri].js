@@ -123,7 +123,7 @@ export default function Portfolio() {
           direction="horizontal"
           slidesPerView={1}
           freeMode
-          a11y
+          a11y={{ enabled: true }}
           updateOnWindowResize
           keyboard={{ enabled: true }}
           pagination={{ clickable: true }}
