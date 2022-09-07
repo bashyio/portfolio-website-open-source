@@ -16,7 +16,7 @@ import LoadingScreen from '../components/LoadingScreen';
 import { cursorLink, fixedNav } from '../helpers';
 
 function MyApp({ Component, pageProps }) {
-  const cursorRef = useRef();
+  const cursorRef = useRef(null);
   const router = useRouter();
   const [showLoading, setShowLoading] = useState(false);
   const [currentUrl, setCurrentUrl] = useState(router.asPath);
