@@ -291,12 +291,15 @@ export const portfolioSingle = {
   gallery: [
     {
       url: '/assets/img/portfolio-1.jpg',
+      name: 'portfolio-1.jpg',
     },
     {
       url: '/assets/img/portfolio-2.jpg',
+      name: 'portfolio-2.jpg',
     },
     {
       url: '/assets/img/portfolio-3.jpg',
+      name: 'portfolio-3.jpg',
     },
   ],
 };

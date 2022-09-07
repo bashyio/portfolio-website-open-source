@@ -33,7 +33,7 @@ export default function Portfolio() {
   const [imagesReady, setImagesReady] = useState(false);
   const [pageLoading, setPageLoading] = useState(true);
 
-  const imageList = [portfolioSingle.gallery];
+  const imageList = portfolioSingle.gallery;
 
   const startLoadImage = () => {
     tooSlowFallback(setImagesReady, 1000);
